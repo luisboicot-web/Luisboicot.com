@@ -1,1001 +1,1321 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Luis Boicot | Stand Up Comedy</title>
-
-  <meta
-    name="description"
-    content="Sitio oficial de Luis Boicot. Stand up, comedia musical, historias reales, próximos shows, videos y Escuela Clandestina."
-  />
-
-  <style>
-    :root {
-      --black: #050505;
-      --black-2: #0b0b0b;
-      --black-3: #111111;
-      --white: #f5f5f5;
-      --gray: #a8a8a8;
-      --gray-dark: #252525;
-      --red: #f20c2b;
-      --red-dark: #9e071b;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background: var(--black);
-    }
-
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .site-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 20;
-      padding: 28px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .brand-small {
-      line-height: 1;
-    }
-
-    .brand-small strong {
-      display: block;
-      font-size: clamp(22px, 3vw, 32px);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-    }
-
-    .brand-small span {
-      display: block;
-      margin-top: 8px;
-      color: var(--red);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
-      font-style: italic;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 100svh;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background: #02020b;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,0.04) 0%,
-          rgba(0,0,0,0.06) 35%,
-          rgba(0,0,0,0.45) 70%,
-          rgba(0,0,0,0.96) 100%
-        );
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .hero-photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 53% 20%;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 180px 24px 50px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 22px;
-      color: var(--red);
-      font-size: 17px;
-      font-weight: 900;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-
-    .hero-title {
-      max-width: 800px;
-      font-size: clamp(72px, 13vw, 165px);
-      font-weight: 900;
-      line-height: 0.78;
-      letter-spacing: -0.075em;
-      text-transform: uppercase;
-    }
-
-    .hero-title span {
-      display: block;
-    }
-
-    .hero-subtitle {
-      margin-top: 36px;
-      color: var(--red);
-      font-family: Georgia, "Times New Roman", serif;
-      font-style: italic;
-      font-size: clamp(34px, 6vw, 65px);
-      line-height: 1;
-    }
-
-    .hero-description {
-      max-width: 760px;
-      margin-top: 30px;
-      font-size: clamp(16px, 2vw, 22px);
-      font-weight: 800;
-      line-height: 1.45;
-      text-transform: uppercase;
-    }
-
-    .hero-actions {
-      margin-top: 42px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      max-width: 680px;
-    }
-
-    .btn {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px 25px;
-      border: 1px solid #363636;
-      font-size: 17px;
-      font-weight: 900;
-      text-align: center;
-      text-transform: uppercase;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--red);
-      border-color: var(--red);
-      color: #fff;
-    }
-
-    .btn-secondary {
-      background: rgba(0, 0, 0, 0.52);
-      color: #fff;
-      backdrop-filter: blur(5px);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* =========================
-       NEXT SHOW STRIP
-    ========================= */
-
-    .next-show {
-      background:
-        linear-gradient(120deg, #130004 0%, #0c0002 65%, #050505 100%);
-      border-bottom: 1px solid #2b2b2b;
-      padding: 34px 24px;
-    }
-
-    .next-show-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding-left: 28px;
-      border-left: 5px solid var(--red);
-    }
-
-    .next-show-label {
-      color: var(--red);
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: 0.23em;
-      text-transform: uppercase;
-    }
-
-    .next-show-title {
-      margin-top: 16px;
-      font-size: clamp(32px, 5vw, 50px);
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .next-show-meta {
-      margin-top: 8px;
-      color: #bcbcbc;
-      font-size: 18px;
-    }
-
-    /* =========================
-       GENERIC SECTIONS
-    ========================= */
-
-    .section {
-      padding: 105px 24px;
-      background: var(--black-2);
-      border-bottom: 1px solid #242424;
-    }
-
-    .section-black {
-      background: var(--black);
-    }
-
-    .section-inner {
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-label {
-      color: var(--red);
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      margin-top: 20px;
-      max-width: 900px;
-      font-size: clamp(56px, 9vw, 108px);
-      line-height: 0.9;
-      font-weight: 900;
-      letter-spacing: -0.06em;
-      text-transform: uppercase;
-    }
-
-    .section-description {
-      max-width: 900px;
-      margin-top: 38px;
-      color: var(--gray);
-      font-size: clamp(20px, 2.4vw, 29px);
-      line-height: 1.65;
-    }
-
-    /* =========================
-       SHOWS
-    ========================= */
-
-    .shows-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 65px;
-    }
-
-    .show-card {
-      position: relative;
-      min-height: 570px;
-      overflow: hidden;
-      border: 1px solid #3d3d3d;
-      display: flex;
-      align-items: flex-end;
-      isolation: isolate;
-    }
-
-    .show-card.featured {
-      border-color: var(--red);
-    }
-
-    .show-card img {
-      position: absolute;
-      inset: 0;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      z-index: -2;
-    }
-
-    .show-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,0.08),
-          rgba(0,0,0,0.25) 40%,
-          rgba(0,0,0,0.96) 100%
-        );
-    }
-
-    .show-card-content {
-      width: 100%;
-      padding: 38px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 11px 15px;
-      background: var(--red);
-      color: white;
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .show-card h3 {
-      margin-top: 105px;
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .show-date {
-      margin-top: 14px;
-      color: var(--red);
-      font-size: 20px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .show-state {
-      margin-top: 9px;
-      color: #bebebe;
-      text-transform: uppercase;
-    }
-
-    /* =========================
-       VIDEOS
-    ========================= */
-
-    .video-button {
-      margin-top: 45px;
-      max-width: 660px;
-    }
-
-    .video-cover {
-      position: relative;
-      margin-top: 52px;
-      min-height: 480px;
-      border: 1px solid #383838;
-      overflow: hidden;
-    }
-
-    .video-cover img {
-      width: 100%;
-      height: 100%;
-      min-height: 480px;
-      object-fit: cover;
-    }
-
-    .video-cover::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.22);
-    }
-
-    .play {
-      position: absolute;
-      z-index: 3;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 118px;
-      height: 118px;
-      border: 4px solid #fff;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 43px;
-      background: rgba(0,0,0,0.28);
-    }
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-photo {
-      min-height: 760px;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      min-height: 760px;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .red-text {
-      color: var(--red);
-    }
-
-    /* =========================
-       STATS
-    ========================= */
-
-    .stats {
-      margin-top: 80px;
-      border-top: 1px solid #292929;
-      border-bottom: 1px solid #292929;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .stat {
-      padding: 42px 28px 42px 0;
-      position: relative;
-    }
-
-    .stat:not(:last-child) {
-      border-right: 1px solid #292929;
-      padding-right: 36px;
-      margin-right: 36px;
-    }
-
-    .stat-number {
-      display: block;
-      color: var(--red);
-      font-size: clamp(48px, 6vw, 78px);
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-    }
-
-    .stat-label {
-      display: block;
-      margin-top: 16px;
-      color: #aaa;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* =========================
-       SCHOOL
-    ========================= */
-
-    .school {
-      position: relative;
-      min-height: 720px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .school img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -3;
-    }
-
-    .school::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(0,0,0,0.95) 0%,
-          rgba(0,0,0,0.84) 45%,
-          rgba(0,0,0,0.42) 100%
-        );
-      z-index: -2;
-    }
-
-    .school-inner {
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 90px 24px;
-    }
-
-    .school-title {
-      max-width: 720px;
-      margin-top: 22px;
-      font-size: clamp(55px, 8.5vw, 105px);
-      font-weight: 900;
-      line-height: 0.88;
-      letter-spacing: -0.06em;
-      text-transform: uppercase;
-    }
-
-    .school-description {
-      max-width: 780px;
-      margin-top: 40px;
-      color: #d3d3d3;
-      font-size: clamp(19px, 2.4vw, 28px);
-      line-height: 1.65;
-    }
-
-    .school .btn {
-      max-width: 580px;
-      margin-top: 42px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      padding: 55px 24px;
-      background: #030303;
-      text-align: center;
-      border-top: 1px solid #222;
-    }
-
-    footer strong {
-      font-size: 20px;
-    }
-
-    footer p {
-      margin-top: 10px;
-      color: #777;
-      font-size: 14px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 760px) {
-
-      .site-header {
-        padding: 24px;
-      }
-
-      .brand-small strong {
-        font-size: 27px;
-      }
-
-      .brand-small span {
-        font-size: 18px;
-      }
-
-      .hero {
-        min-height: 980px;
-      }
-
-      .hero-photo {
-        object-position: 51% 18%;
-      }
-
-      .hero-content {
-        padding: 390px 24px 36px;
-      }
-
-      .hero-title {
-        font-size: clamp(69px, 20vw, 104px);
-        line-height: 0.78;
-      }
-
-      .hero-subtitle {
-        margin-top: 40px;
-        font-size: 42px;
-      }
-
-      .hero-description {
-        font-size: 15px;
-        line-height: 1.5;
-      }
-
-      .hero-actions {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .next-show {
-        padding: 33px 24px 40px;
-      }
-
-      .section {
-        padding: 85px 24px;
-      }
-
-      .section-title {
-        font-size: clamp(54px, 15vw, 78px);
-      }
-
-      .section-description {
-        font-size: 21px;
-      }
-
-      .shows-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 50px;
-      }
-
-      .show-card {
-        width: 100%;
-        min-height: 570px;
-      }
-
-      .show-card-content {
-        padding: 30px;
-      }
-
-      .show-card h3 {
-        margin-top: 115px;
-      }
-
-      .video-cover,
-      .video-cover img {
-        min-height: 390px;
-      }
-
-      .play {
-        width: 96px;
-        height: 96px;
-        font-size: 35px;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 58px;
-      }
-
-      .about-photo,
-      .about-photo img {
-        min-height: 620px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-        margin-top: 65px;
-      }
-
-      .stat {
-        padding: 35px 0;
-      }
-
-      .stat:not(:last-child) {
-        border-right: 0;
-        border-bottom: 1px solid #292929;
-        padding-right: 0;
-        margin-right: 0;
-      }
-
-      .stat-number {
-        font-size: 55px;
-      }
-
-      .stat-label {
-        margin-top: 12px;
-      }
-
-      .school {
-        min-height: 690px;
-      }
-
-      .school::before {
-        background:
-          linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.56) 0%,
-            rgba(0,0,0,0.84) 50%,
-            rgba(0,0,0,0.98) 100%
-          );
-      }
-
-      .school-title {
-        font-size: clamp(56px, 15vw, 77px);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Luis Boicot | Stand Up Comedy</title>
+
+    <meta name="description"
+          content="Sitio oficial de Luis Boicot. Stand up comedy, comedia musical, historias reales, próximos shows y Escuela Clandestina.">
+
+    <meta name="theme-color" content="#050505">
+
+    <style>
+        :root {
+            --black: #050505;
+            --black-soft: #0b0b0b;
+            --red: #ff1230;
+            --white: #f5f5f5;
+            --gray: #a6a6a6;
+            --border: #2d2d2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--black);
+        }
+
+        body {
+            margin: 0;
+            background: var(--black);
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            color: var(--red);
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(55px, 9vw, 112px);
+            line-height: 0.88;
+            letter-spacing: -0.055em;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .section-copy {
+            color: var(--gray);
+            font-size: clamp(18px, 2vw, 24px);
+            line-height: 1.7;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 76px;
+            padding: 20px 30px;
+            border: 1px solid #444;
+            font-size: 17px;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.2s ease;
+        }
+
+        .button:hover {
+            border-color: var(--white);
+        }
+
+        .button:active {
+            transform: scale(0.985);
+        }
+
+        .button-red {
+            color: white;
+            border-color: var(--red);
+            background: var(--red);
+        }
+
+        .button-red:hover {
+            background: #e70d29;
+            border-color: #e70d29;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            isolation: isolate;
+            background: #050505;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.06) 0%,
+                    rgba(0,0,0,0.02) 25%,
+                    rgba(0,0,0,0.20) 52%,
+                    rgba(0,0,0,0.74) 82%,
+                    rgba(0,0,0,0.98) 100%
+                );
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background:
+                linear-gradient(
+                    to right,
+                    rgba(0,0,0,0.16),
+                    transparent 50%,
+                    rgba(0,0,0,0.05)
+                );
+        }
+
+        .hero-content {
+            width: 100%;
+            padding: 150px 0 70px;
+        }
+
+        .hero-inner {
+            width: min(930px, 100%);
+        }
+
+        .hero .eyebrow {
+            margin-bottom: 28px;
+        }
+
+        .hero-title {
+            font-size: clamp(78px, 13vw, 175px);
+            line-height: 0.73;
+            letter-spacing: -0.07em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-left: -0.035em;
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .hero-subtitle {
+            color: var(--red);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(43px, 6.4vw, 82px);
+            line-height: 1;
+            font-weight: 400;
+            font-style: italic;
+            margin-top: 50px;
+        }
+
+        .hero-description {
+            max-width: 760px;
+            margin-top: 42px;
+            color: var(--white);
+            font-size: clamp(15px, 1.8vw, 21px);
+            line-height: 1.5;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .hero-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 45px;
+            max-width: 760px;
+        }
+
+
+        /* =========================================
+           SHOWS
+        ========================================= */
+
+        .shows {
+            padding: 120px 0;
+            background: var(--black-soft);
+        }
+
+        .shows .section-title {
+            margin-top: 25px;
+        }
+
+        .shows .section-copy {
+            max-width: 720px;
+            margin-top: 45px;
+        }
+
+        .shows-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px;
+            margin-top: 70px;
+        }
+
+        .show-card {
+            position: relative;
+            min-height: 720px;
+            border: 1px solid #3b3b3b;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            isolation: isolate;
+            background: #111;
+        }
+
+        .show-card:first-child {
+            border-color: var(--red);
+        }
+
+        .show-card-image {
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+        }
+
+        .show-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .show-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.04),
+                    rgba(0,0,0,0.08) 38%,
+                    rgba(0,0,0,0.95) 86%,
+                    #000 100%
+                );
+        }
+
+        .show-tag {
+            position: absolute;
+            top: 42px;
+            left: 42px;
+            padding: 17px 25px;
+            background: var(--red);
+            color: white;
+            font-weight: 800;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        .show-info {
+            width: 100%;
+            padding: 45px;
+        }
+
+        .show-city {
+            font-size: clamp(36px, 4.4vw, 61px);
+            line-height: 0.95;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .show-date {
+            margin-top: 20px;
+            color: var(--red);
+            font-size: 20px;
+            line-height: 1.2;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .show-status {
+            margin-top: 13px;
+            color: #d0d0d0;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           VIDEOS
+        ========================================= */
+
+        .videos {
+            padding: 120px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: #030303;
+        }
+
+        .videos-header {
+            max-width: 850px;
+        }
+
+        .videos .section-title {
+            margin-top: 25px;
+        }
+
+        .videos .section-copy {
+            margin-top: 40px;
+        }
+
+        .videos .button {
+            margin-top: 50px;
+            max-width: 760px;
+        }
+
+        .video-feature {
+            position: relative;
+            display: block;
+            margin-top: 55px;
+            width: 100%;
+            max-width: 1080px;
+            overflow: hidden;
+            border: 1px solid #333;
+            background: #090909;
+        }
+
+        .video-feature img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .video-feature::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.10);
+            pointer-events: none;
+        }
+
+        .play-button {
+            position: absolute;
+            z-index: 5;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 105px;
+            height: 105px;
+            border: 3px solid white;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.40);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 39px;
+        }
+
+        .play-button span {
+            transform: translateX(4px);
+        }
+
+
+        /* =========================================
+           SOBRE MÍ
+        ========================================= */
+
+        .about {
+            padding: 85px 0 0;
+            background: var(--black-soft);
+        }
+
+        .about-image {
+            width: min(950px, calc(100% - 48px));
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-height: 920px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .about-content {
+            padding-top: 85px;
+            padding-bottom: 95px;
+        }
+
+        .about-title {
+            max-width: 1050px;
+            margin-top: 28px;
+            font-size: clamp(61px, 9.8vw, 128px);
+            line-height: 0.86;
+            letter-spacing: -0.065em;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .about-title .red {
+            color: var(--red);
+        }
+
+        .about-copy {
+            max-width: 900px;
+            color: var(--gray);
+            font-size: clamp(20px, 2.6vw, 30px);
+            line-height: 1.65;
+            margin-top: 65px;
+        }
+
+
+        /* =========================================
+           ESTADÍSTICAS
+        ========================================= */
+
+        .stats {
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            padding: 65px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-number {
+            display: block;
+            color: var(--red);
+            font-size: clamp(67px, 10vw, 115px);
+            line-height: 0.9;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .stat-label {
+            display: block;
+            margin-top: 27px;
+            color: #aaa;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           ESCUELA CLANDESTINA
+        ========================================= */
+
+        .school {
+            position: relative;
+            min-height: 880px;
+            display: flex;
+            align-items: center;
+            isolation: isolate;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .school-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+        }
+
+        .school-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 42%;
+        }
+
+        .school::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.92),
+                    rgba(0,0,0,0.62) 58%,
+                    rgba(0,0,0,0.42)
+                );
+        }
+
+        .school::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: rgba(0,0,0,0.18);
+        }
+
+        .school-content {
+            max-width: 900px;
+            padding: 110px 0;
+        }
+
+        .school-title {
+            margin-top: 28px;
+            max-width: 800px;
+            font-size: clamp(62px, 9vw, 115px);
+            line-height: 0.83;
+            letter-spacing: -0.065em;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .school-copy {
+            margin-top: 55px;
+            max-width: 800px;
+            color: #ddd;
+            font-size: clamp(19px, 2.3vw, 28px);
+            line-height: 1.75;
+        }
+
+        .school .button {
+            margin-top: 60px;
+            max-width: 760px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            padding: 90px 0 110px;
+            text-align: center;
+            background: #030303;
+        }
+
+        .footer-name {
+            font-size: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .footer-copy {
+            margin-top: 25px;
+            color: #777;
+            font-size: 16px;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .shows-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .show-card {
+                min-height: 660px;
+            }
+
+            .hero-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        /* =========================================
+           MÓVIL
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: calc(100% - 40px);
+            }
+
+            .eyebrow {
+                font-size: 13px;
+                letter-spacing: 0.25em;
+            }
+
+
+            /* HERO */
+
+            .hero {
+                min-height: 100svh;
+            }
+
+            .hero-image img {
+                object-position: 52% center;
+            }
+
+            .hero-content {
+                padding-top: 225px;
+                padding-bottom: 35px;
+            }
+
+            .hero .eyebrow {
+                margin-bottom: 20px;
+            }
+
+            .hero-title {
+                font-size: clamp(68px, 19.3vw, 91px);
+                line-height: 0.76;
+                letter-spacing: -0.067em;
+            }
+
+            .hero-subtitle {
+                margin-top: 36px;
+                font-size: clamp(37px, 10.8vw, 52px);
+            }
+
+            .hero-description {
+                margin-top: 35px;
+                font-size: 14px;
+                line-height: 1.48;
+            }
+
+            .hero-actions {
+                margin-top: 34px;
+                gap: 12px;
+            }
+
+            .button {
+                min-height: 64px;
+                padding: 17px 18px;
+                font-size: 15px;
+            }
+
+
+            /* SHOWS */
+
+            .shows {
+                padding: 85px 0 95px;
+            }
+
+            .section-title {
+                font-size: clamp(54px, 15vw, 76px);
+            }
+
+            .section-copy {
+                font-size: 18px;
+                line-height: 1.65;
+            }
+
+            .shows .section-copy {
+                margin-top: 33px;
+            }
+
+            .shows-grid {
+                margin-top: 52px;
+                gap: 28px;
+            }
+
+            .show-card {
+                min-height: 615px;
+            }
+
+            .show-tag {
+                top: 26px;
+                left: 26px;
+                padding: 14px 19px;
+                font-size: 13px;
+            }
+
+            .show-info {
+                padding: 28px 27px 38px;
+            }
+
+            .show-city {
+                font-size: 38px;
+            }
+
+            .show-date {
+                margin-top: 18px;
+                font-size: 17px;
+            }
+
+            .show-status {
+                font-size: 14px;
+            }
+
+
+            /* VIDEOS */
+
+            .videos {
+                padding: 85px 0 80px;
+            }
+
+            .videos .section-title {
+                margin-top: 20px;
+            }
+
+            .videos .section-copy {
+                margin-top: 32px;
+            }
+
+            .videos .button {
+                margin-top: 40px;
+            }
+
+            .video-feature {
+                margin-top: 40px;
+            }
+
+            .video-feature img {
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .play-button {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80px;
+                height: 80px;
+                font-size: 29px;
+            }
+
+
+            /* SOBRE MI */
+
+            .about {
+                padding-top: 55px;
+            }
+
+            .about-image {
+                width: calc(100% - 40px);
+            }
+
+            .about-image img {
+                max-height: 650px;
+                object-fit: cover;
+                object-position: center top;
+            }
+
+            .about-content {
+                padding-top: 60px;
+                padding-bottom: 70px;
+            }
+
+            .about-title {
+                margin-top: 23px;
+                font-size: clamp(54px, 15.5vw, 73px);
+                line-height: 0.88;
+                letter-spacing: -0.061em;
+            }
+
+            .about-copy {
+                margin-top: 45px;
+                font-size: 19px;
+                line-height: 1.7;
+            }
+
+
+            /* STATS */
+
+            .stat {
+                padding: 55px 0;
+            }
+
+            .stat-number {
+                font-size: 74px;
+            }
+
+            .stat-label {
+                margin-top: 22px;
+                font-size: 15px;
+            }
+
+
+            /* ESCUELA */
+
+            .school {
+                min-height: 720px;
+            }
+
+            .school-bg img {
+                object-position: 52% center;
+            }
+
+            .school::before {
+                background:
+                    linear-gradient(
+                        to bottom,
+                        rgba(0,0,0,0.32),
+                        rgba(0,0,0,0.63) 58%,
+                        rgba(0,0,0,0.94)
+                    );
+            }
+
+            .school-content {
+                padding: 85px 0;
+            }
+
+            .school-title {
+                margin-top: 23px;
+                font-size: clamp(50px, 14.2vw, 67px);
+                line-height: 0.86;
+                letter-spacing: -0.06em;
+            }
+
+            .school-copy {
+                margin-top: 42px;
+                font-size: 18px;
+                line-height: 1.75;
+            }
+
+            .school .button {
+                margin-top: 45px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 75px 0 95px;
+            }
+
+            .footer-name {
+                font-size: 24px;
+            }
+
+            .footer-copy {
+                font-size: 14px;
+            }
+        }
+
+
+        @media (max-width: 370px) {
+
+            .hero-title {
+                font-size: 64px;
+            }
+
+            .hero-subtitle {
+                font-size: 35px;
+            }
+
+            .about-title {
+                font-size: 49px;
+            }
+
+            .school-title {
+                font-size: 47px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-  <!-- HERO -->
-  <header class="site-header">
-    <div class="brand-small">
-      <strong>LUIS BOICOT</strong>
-      <span>Stand Up Comedy</span>
-    </div>
-  </header>
 
-  <main>
+    <!-- =========================================
+         HERO
+    ========================================== -->
 
-    <section class="hero">
-      <img
-        class="hero-photo"
-        src="assets/hero.jpg"
-        alt="Luis Boicot en vivo"
-      />
+    <header class="hero">
 
-      <div class="hero-content">
-        <div class="eyebrow">Sitio oficial</div>
-
-        <h1 class="hero-title">
-          <span>LUIS</span>
-          <span>BOICOT</span>
-        </h1>
-
-        <div class="hero-subtitle">Stand Up Comedy</div>
-
-        <p class="hero-description">
-          Comedia. Música. Historias reales.<br />
-          Paternidad. Vida. Verdad.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#shows">
-            Próximos shows
-          </a>
-
-          <a class="btn btn-secondary" href="#videos">
-            Ver videos
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRÓXIMO SHOW -->
-    <section class="next-show">
-      <div class="next-show-inner">
-        <div class="next-show-label">Próximo show</div>
-
-        <div class="next-show-title">La Serena</div>
-
-        <div class="next-show-meta">
-          22 AGO 2026 · Entradas disponibles
-        </div>
-      </div>
-    </section>
-
-    <!-- SHOWS -->
-    <section class="section" id="shows">
-      <div class="section-inner">
-
-        <div class="section-label">Próximamente</div>
-
-        <h2 class="section-title">
-          Shows
-        </h2>
-
-        <p class="section-description">
-          Próximas presentaciones de Luis Boicot.
-          Compra tus entradas directamente desde el sitio oficial.
-        </p>
-
-        <div class="shows-grid">
-
-          <article class="show-card featured">
+        <div class="hero-image">
             <img
-              src="assets/stage-wide.jpg"
-              alt="El Show de Luis Boicot en vivo"
-            />
+                src="assets/hero.jpg"
+                alt="Luis Boicot durante un show de stand up"
+            >
+        </div>
 
-            <div class="show-card-content">
-              <span class="tag">Próximo</span>
+        <div class="hero-content">
 
-              <h3>La Serena</h3>
+            <div class="container">
 
-              <div class="show-date">
-                22 AGO 2026
-              </div>
+                <div class="hero-inner">
 
-              <div class="show-state">
-                Entradas disponibles
-              </div>
+                    <div class="eyebrow">
+                        Sitio oficial
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span>Luis</span>
+                        <span>Boicot</span>
+                    </h1>
+
+                    <div class="hero-subtitle">
+                        Stand Up Comedy
+                    </div>
+
+                    <p class="hero-description">
+                        Comedia. Música. Historias reales.<br>
+                        Paternidad. Vida. Verdad.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="#shows"
+                            class="button button-red"
+                        >
+                            Próximos shows
+                        </a>
+
+                        <a
+                            href="#videos"
+                            class="button"
+                        >
+                            Ver videos
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
-          </article>
-
-          <article class="show-card">
-            <img
-              src="assets/show-wide.jpg"
-              alt="Luis Boicot en vivo"
-            />
-
-            <div class="show-card-content">
-              <span class="tag">Próximamente</span>
-
-              <h3>Más ciudades</h3>
-
-              <div class="show-date">
-                Muy pronto
-              </div>
-
-              <div class="show-state">
-                Nuevas fechas
-              </div>
-            </div>
-          </article>
 
         </div>
 
-      </div>
-    </section>
+    </header>
 
-    <!-- VIDEOS -->
-    <section class="section section-black" id="videos">
-      <div class="section-inner">
 
-        <div class="section-label">En vivo</div>
+    <!-- =========================================
+         SHOWS
+    ========================================== -->
 
-        <h2 class="section-title">
-          Videos
-        </h2>
+    <section
+        class="shows"
+        id="shows"
+    >
 
-        <p class="section-description">
-          Stand up, comedia musical y crowd work.
-          Fragmentos y shows completos disponibles en YouTube.
-        </p>
+        <div class="container">
 
-        <div class="video-button">
-          <a class="btn btn-secondary" href="#">
-            Ir a YouTube
-          </a>
-        </div>
-
-        <a class="video-cover" href="#">
-          <img
-            src="assets/stage-wide.jpg"
-            alt="Videos de Luis Boicot en vivo"
-          />
-
-          <div class="play">▶</div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- SOBRE MÍ -->
-    <section class="section">
-      <div class="section-inner">
-
-        <div class="about-grid">
-
-          <div class="about-photo">
-            <img
-              src="assets/portrait.jpg"
-              alt="Luis Boicot"
-            />
-          </div>
-
-          <div>
-
-            <div class="section-label">
-              Sobre mí
+            <div class="eyebrow">
+                Próximamente
             </div>
 
             <h2 class="section-title">
-              Historias<br />
-              reales.<br />
-              Risas
-              <span class="red-text">reales.</span>
+                Shows
             </h2>
 
-            <p class="section-description">
-              Luis Boicot combina stand up, música, improvisación
-              y experiencias reales para construir un show cercano,
-              impredecible y profundamente personal.
+            <p class="section-copy">
+                Próximas presentaciones de Luis Boicot.
+                Compra tus entradas directamente desde
+                el sitio oficial.
             </p>
 
-          </div>
+
+            <div class="shows-grid">
+
+
+                <!-- LA SERENA -->
+
+                <a
+                    class="show-card"
+                    href="#"
+                    aria-label="Entradas para La Serena"
+                >
+
+                    <div class="show-card-image">
+
+                        <img
+                            src="assets/stage-wide.jpg"
+                            alt="El Show de Luis Boicot en vivo"
+                        >
+
+                    </div>
+
+                    <div class="show-tag">
+                        Próximo
+                    </div>
+
+                    <div class="show-info">
+
+                        <h3 class="show-city">
+                            La Serena
+                        </h3>
+
+                        <div class="show-date">
+                            22 AGO 2026
+                        </div>
+
+                        <div class="show-status">
+                            Entradas disponibles
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- PRÓXIMAS CIUDADES -->
+
+                <div class="show-card">
+
+                    <div class="show-card-image">
+
+                        <img
+                            src="assets/show-wide.jpg"
+                            alt="Luis Boicot presentándose en vivo"
+                        >
+
+                    </div>
+
+                    <div class="show-tag">
+                        Próximamente
+                    </div>
+
+                    <div class="show-info">
+
+                        <h3 class="show-city">
+                            Más ciudades
+                        </h3>
+
+                        <div class="show-date">
+                            Muy pronto
+                        </div>
+
+                        <div class="show-status">
+                            Nuevas fechas
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <!-- DATOS -->
+    </section>
+
+
+    <!-- =========================================
+         VIDEOS
+    ========================================== -->
+
+    <section
+        class="videos"
+        id="videos"
+    >
+
+        <div class="container">
+
+            <div class="videos-header">
+
+                <div class="eyebrow">
+                    En vivo
+                </div>
+
+                <h2 class="section-title">
+                    Videos
+                </h2>
+
+                <p class="section-copy">
+                    Stand up, comedia musical y crowd work.
+                    Fragmentos y shows completos disponibles
+                    en YouTube.
+                </p>
+
+                <a
+                    href="#"
+                    class="button"
+                >
+                    Ir a YouTube
+                </a>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="video-feature"
+                aria-label="Ver video de Luis Boicot"
+            >
+
+                <img
+                    src="assets/stage-wide.jpg"
+                    alt="Luis Boicot presentándose ante el público"
+                >
+
+                <div class="play-button">
+                    <span>▶</span>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SOBRE MI
+    ========================================== -->
+
+    <section
+        class="about"
+        id="sobre-mi"
+    >
+
+        <div class="about-image">
+
+            <img
+                src="assets/portrait.jpg"
+                alt="Luis Boicot durante una presentación"
+            >
+
+        </div>
+
+
+        <div class="about-content">
+
+            <div class="container">
+
+                <div class="eyebrow">
+                    Sobre mí
+                </div>
+
+                <h2 class="about-title">
+                    Historias<br>
+                    reales.<br>
+                    Risas
+                    <span class="red">reales.</span>
+                </h2>
+
+                <p class="about-copy">
+                    Luis Boicot combina stand up, música,
+                    improvisación y experiencias reales para
+                    construir un show cercano, impredecible
+                    y profundamente personal.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ESTADÍSTICAS -->
+
         <div class="stats">
 
-          <div class="stat">
-            <span class="stat-number">+20</span>
-            <span class="stat-label">Ciudades</span>
-          </div>
+            <div class="container">
 
-          <div class="stat">
-            <span class="stat-number">3</span>
-            <span class="stat-label">Países</span>
-          </div>
+                <div class="stat">
 
-          <div class="stat">
-            <span class="stat-number">+100</span>
-            <span class="stat-label">Shows en vivo</span>
-          </div>
+                    <strong class="stat-number">
+                        +20
+                    </strong>
+
+                    <span class="stat-label">
+                        Ciudades
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong class="stat-number">
+                        3
+                    </strong>
+
+                    <span class="stat-label">
+                        Países
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong class="stat-number">
+                        +100
+                    </strong>
+
+                    <span class="stat-label">
+                        Shows en vivo
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
-      </div>
     </section>
 
-    <!-- ESCUELA -->
-    <section class="school">
 
-      <img
-        src="assets/show-wide.jpg"
-        alt="Escuela Clandestina de Comedia"
-      />
+    <!-- =========================================
+         ESCUELA CLANDESTINA
+         usa assets/school.jpg
+    ========================================== -->
 
-      <div class="school-inner">
+    <section
+        class="school"
+        id="escuela"
+    >
 
-        <div class="section-label">
-          Escuela Clandestina
+        <div class="school-bg">
+
+            <img
+                src="assets/school.jpg"
+                alt="Luis Boicot junto a alumnos de Escuela Clandestina"
+            >
+
         </div>
 
-        <h2 class="school-title">
-          Aprende<br />
-          a hacer<br />
-          comedia.
-        </h2>
 
-        <p class="school-description">
-          Talleres de stand up, escritura, remates y desarrollo
-          artístico para personas que quieren encontrar su propia voz.
-        </p>
+        <div class="container">
 
-        <a class="btn btn-primary" href="#">
-          Conocer la escuela
-        </a>
+            <div class="school-content">
 
-      </div>
+                <div class="eyebrow">
+                    Escuela Clandestina
+                </div>
+
+                <h2 class="school-title">
+                    Aprende<br>
+                    a hacer<br>
+                    comedia.
+                </h2>
+
+                <p class="school-copy">
+                    Talleres de stand up, escritura,
+                    remates y desarrollo artístico para
+                    personas que quieren encontrar su
+                    propia voz.
+                </p>
+
+                <a
+                    href="https://www.instagram.com/escuelaclandestina/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button button-red"
+                >
+                    Conocer la escuela
+                </a>
+
+            </div>
+
+        </div>
 
     </section>
 
-  </main>
 
-  <footer>
-    <strong>LUIS BOICOT</strong>
-    <p>Stand Up Comedy · Sitio oficial</p>
-  </footer>
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-name">
+                Luis Boicot
+            </div>
+
+            <div class="footer-copy">
+                Stand Up Comedy · Sitio oficial
+            </div>
+
+        </div>
+
+    </footer>
+
 
 </body>
 </html>
