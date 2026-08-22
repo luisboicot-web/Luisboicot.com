@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
   <title>Luis Boicot | Stand Up Comedy</title>
 
@@ -13,17 +19,36 @@
 
   <meta name="theme-color" content="#050505">
 
+
   <style>
+
+    /* ==================================================
+       VARIABLES
+    ================================================== */
+
     :root {
+
       --bg: #050505;
-      --bg-soft: #0a0a0a;
+      --bg-soft: #090909;
+
       --white: #f5f5f5;
-      --gray: #a7a7a7;
-      --gray-dark: #252525;
+      --gray: #aaaaaa;
+      --gray-light: #d6d6d6;
+      --gray-dark: #292929;
+
       --red: #ff1635;
-      --red-dark: #a9001b;
-      --school: #18b8e7;
+      --red-dark: #d90024;
+
+      --school: #20b9e5;
+
+      --container: 1180px;
+
     }
+
+
+    /* ==================================================
+       RESET
+    ================================================== */
 
     * {
       box-sizing: border-box;
@@ -31,131 +56,306 @@
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
       background: var(--bg);
     }
 
+
     body {
+
       margin: 0;
+
       background: var(--bg);
+
       color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       overflow-x: hidden;
-      padding-bottom: 0;
+
+      -webkit-font-smoothing: antialiased;
+
     }
+
 
     img {
+
       display: block;
+
       max-width: 100%;
+
     }
+
 
     a {
+
       color: inherit;
+
       text-decoration: none;
+
     }
+
+
+    button {
+
+      font: inherit;
+
+    }
+
 
     section {
-      scroll-margin-top: 100px;
+
+      scroll-margin-top: 110px;
+
     }
+
 
     .container {
-      width: min(1180px, calc(100% - 64px));
+
+      width:
+        min(
+          var(--container),
+          calc(100% - 64px)
+        );
+
       margin-inline: auto;
-    }
 
-    .eyebrow {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: .28em;
-      font-weight: 900;
-      font-size: 14px;
-    }
-
-    .section-title {
-      margin-top: 18px;
-      font-size: clamp(52px, 8vw, 106px);
-      line-height: .88;
-      letter-spacing: -.055em;
-      text-transform: uppercase;
-      font-weight: 900;
-    }
-
-    .section-copy {
-      color: var(--gray);
-      font-size: clamp(18px, 2.1vw, 25px);
-      line-height: 1.7;
-      max-width: 760px;
-      margin-top: 34px;
     }
 
 
     /* ==================================================
-       NAVEGACIÓN FLOTANTE
+       GENERAL TYPOGRAPHY
+    ================================================== */
+
+    .eyebrow {
+
+      color: var(--red);
+
+      text-transform: uppercase;
+
+      letter-spacing: .27em;
+
+      font-weight: 900;
+
+      font-size: 14px;
+
+      line-height: 1.2;
+
+    }
+
+
+    .section-title {
+
+      margin-top: 18px;
+
+      font-size:
+        clamp(
+          52px,
+          7.5vw,
+          104px
+        );
+
+      line-height: .88;
+
+      letter-spacing: -.055em;
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+
+    }
+
+
+    .section-copy {
+
+      color: var(--gray-light);
+
+      font-size:
+        clamp(
+          18px,
+          1.8vw,
+          23px
+        );
+
+      font-weight: 500;
+
+      line-height: 1.65;
+
+      max-width: 780px;
+
+      margin-top: 32px;
+
+    }
+
+
+    /* ==================================================
+       BUTTONS
+    ================================================== */
+
+    .btn {
+
+      min-height: 68px;
+
+      padding: 0 32px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border: 1px solid #424242;
+
+      color: #fff;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .02em;
+
+      font-size: 15px;
+
+      cursor: pointer;
+
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+
+    }
+
+
+    .btn:hover {
+
+      transform: translateY(-2px);
+
+      border-color: #fff;
+
+    }
+
+
+    .btn-primary {
+
+      background: var(--red);
+
+      border-color: var(--red);
+
+    }
+
+
+    .btn-primary:hover {
+
+      background: var(--red-dark);
+
+      border-color: var(--red-dark);
+
+    }
+
+
+    .btn-outline {
+
+      background: rgba(0,0,0,.54);
+
+      backdrop-filter: blur(10px);
+
+      -webkit-backdrop-filter: blur(10px);
+
+    }
+
+
+    /* ==================================================
+       NAVIGATION
     ================================================== */
 
     .site-nav {
+
       position: fixed;
-      z-index: 1000;
-      top: 20px;
+
+      top: 18px;
+
       left: 50%;
+
       transform: translateX(-50%);
 
+      z-index: 9999;
+
       display: flex;
+
       align-items: center;
+
       gap: 4px;
 
-      padding: 7px;
+      padding: 5px;
 
-      border: 1px solid rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.17);
+
       border-radius: 999px;
 
-      background: rgba(5,5,5,.72);
+      background: rgba(5,5,5,.78);
 
       backdrop-filter: blur(18px);
+
       -webkit-backdrop-filter: blur(18px);
 
       box-shadow:
-        0 8px 30px rgba(0,0,0,.28),
-        inset 0 1px 0 rgba(255,255,255,.05);
+        0 16px 50px rgba(0,0,0,.32);
+
     }
 
-    .site-nav a {
-      min-height: 42px;
 
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .nav-link {
+
+      min-width: 92px;
+
+      height: 48px;
 
       padding: 0 18px;
 
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
       border-radius: 999px;
 
-      color: #d5d5d5;
+      color: #bebebe;
 
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .08em;
       text-transform: uppercase;
 
+      letter-spacing: .06em;
+
+      font-size: 12px;
+
+      font-weight: 900;
+
       transition:
-        background .2s ease,
-        color .2s ease,
+        background .25s ease,
+        color .25s ease,
         transform .2s ease;
+
     }
 
-    .site-nav a:hover {
+
+    .nav-link:hover {
+
       color: #fff;
-      background: rgba(255,255,255,.08);
+
     }
 
-    .site-nav .nav-tickets {
-      color: #fff;
+
+    .nav-link.active {
+
       background: var(--red);
-    }
 
-    .site-nav .nav-tickets:hover {
-      background: #e90025;
+      color: white;
+
     }
 
 
@@ -164,202 +364,244 @@
     ================================================== */
 
     .hero {
+
       position: relative;
+
       min-height: 100svh;
 
-      display: flex;
-      align-items: flex-end;
-
       overflow: hidden;
+
       background: #000;
 
+      display: flex;
+
+      align-items: flex-end;
+
       isolation: isolate;
+
     }
 
-    .hero-image {
-      position: absolute;
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      object-position: center 16%;
-
-      z-index: -3;
-    }
 
     /*
-      Más contraste detrás del texto,
-      sin poner una caja visible.
+       ATMOSPHERIC BACKGROUND
+
+       Same REAL photograph.
+       Blurred only behind the main photograph.
+       Main photograph is never altered.
     */
 
     .hero::before {
+
       content: "";
+
       position: absolute;
+
+      inset: -50px;
+
+      z-index: -4;
+
+      background:
+        url("assets/hero.jpg")
+        center center / cover
+        no-repeat;
+
+      filter:
+        blur(35px)
+        brightness(.30)
+        saturate(.95);
+
+      transform: scale(1.08);
+
+    }
+
+
+    .hero-image {
+
+      position: absolute;
+
       inset: 0;
+
+      z-index: -3;
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: contain;
+
+      object-position: center center;
+
+    }
+
+
+    .hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
       z-index: -2;
 
       background:
+
         linear-gradient(
-          90deg,
-          rgba(0,0,0,.58) 0%,
-          rgba(0,0,0,.30) 30%,
-          rgba(0,0,0,.08) 63%,
-          rgba(0,0,0,.05) 100%
-        );
-    }
+          to right,
+          rgba(0,0,0,.52) 0%,
+          rgba(0,0,0,.20) 45%,
+          rgba(0,0,0,.07) 73%,
+          rgba(0,0,0,.20) 100%
+        ),
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-
-      background:
         linear-gradient(
           to bottom,
-          rgba(0,0,0,.10) 0%,
-          rgba(0,0,0,.04) 32%,
-          rgba(0,0,0,.28) 59%,
-          rgba(0,0,0,.72) 79%,
-          rgba(0,0,0,.97) 100%
+          rgba(0,0,0,.06) 0%,
+          rgba(0,0,0,.02) 40%,
+          rgba(0,0,0,.33) 70%,
+          #050505 100%
         );
+
     }
+
 
     .hero-content {
+
       position: relative;
 
-      width: min(1180px, calc(100% - 64px));
+      z-index: 2;
+
+      width:
+        min(
+          var(--container),
+          calc(100% - 64px)
+        );
+
       margin-inline: auto;
 
-      padding: 140px 0 68px;
+      padding:
+        120px
+        0
+        68px;
+
     }
 
+
     .hero-kicker {
+
       color: var(--red);
 
       font-weight: 900;
-      font-size: clamp(13px, 1.8vw, 18px);
+
+      font-size:
+        clamp(
+          13px,
+          1.5vw,
+          18px
+        );
 
       text-transform: uppercase;
+
       letter-spacing: .3em;
 
       margin-bottom: 20px;
 
       text-shadow:
-        0 2px 10px rgba(0,0,0,.95),
-        0 0 18px rgba(0,0,0,.75);
+        0 2px 14px rgba(0,0,0,.8);
+
     }
 
-    /*
-      Principal mejora de legibilidad:
-      pasamos de 300 a 900.
-    */
 
     .hero h1 {
-      font-size: clamp(78px, 13vw, 180px);
-      line-height: .76;
 
-      letter-spacing: -.065em;
+      font-size:
+        clamp(
+          82px,
+          10vw,
+          152px
+        );
 
-      font-weight: 900;
+      line-height: .77;
+
+      letter-spacing: -.07em;
+
+      font-weight: 500;
+
       text-transform: uppercase;
 
-      max-width: 950px;
+      max-width: 740px;
 
       text-shadow:
-        0 3px 10px rgba(0,0,0,.65),
-        0 8px 30px rgba(0,0,0,.55);
+        0 4px 24px rgba(0,0,0,.45);
+
     }
+
 
     .hero-script {
+
       color: var(--red);
 
-      font-family: Georgia, "Times New Roman", serif;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-style: italic;
+
       font-weight: 700;
 
-      font-size: clamp(42px, 6vw, 82px);
+      font-size:
+        clamp(
+          47px,
+          5vw,
+          76px
+        );
+
       line-height: 1;
 
-      margin-top: 38px;
+      margin-top: 40px;
 
       text-shadow:
-        0 2px 10px rgba(0,0,0,.95),
-        0 0 22px rgba(0,0,0,.65);
+        0 3px 15px rgba(0,0,0,.72);
+
     }
 
+
     .hero-description {
+
       text-transform: uppercase;
 
       font-weight: 900;
+
       line-height: 1.5;
 
-      margin-top: 30px;
+      margin-top: 32px;
 
       max-width: 650px;
 
-      font-size: clamp(14px, 1.7vw, 19px);
+      font-size:
+        clamp(
+          14px,
+          1.4vw,
+          18px
+        );
 
       text-shadow:
-        0 2px 8px rgba(0,0,0,1),
-        0 4px 20px rgba(0,0,0,.8);
+        0 2px 12px rgba(0,0,0,.95);
+
     }
 
+
     .hero-actions {
+
       display: flex;
+
       gap: 16px;
 
       margin-top: 38px;
 
-      max-width: 760px;
-    }
+      max-width: 700px;
 
-    .btn {
-      min-height: 68px;
-
-      padding: 0 32px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      border: 1px solid #3c3c3c;
-
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .02em;
-
-      font-size: 15px;
-
-      transition:
-        transform .2s ease,
-        border-color .2s ease,
-        background .2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--white);
-    }
-
-    .btn-primary {
-      background: var(--red);
-      color: #fff;
-      border-color: var(--red);
-    }
-
-    .btn-primary:hover {
-      background: #e90025;
-      border-color: #e90025;
-    }
-
-    .btn-outline {
-      background: rgba(0,0,0,.55);
-
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
     }
 
 
@@ -368,32 +610,51 @@
     ================================================== */
 
     .shows-section {
-      padding: 110px 0 130px;
 
-      border-top: 1px solid #181818;
+      padding:
+        110px
+        0
+        130px;
+
+      border-top:
+        1px solid #181818;
 
       background: #080808;
+
     }
+
 
     .shows-intro {
+
       margin-bottom: 60px;
+
     }
+
 
     .shows-grid {
+
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
 
       gap: 26px;
+
     }
 
+
     .show-card {
+
       position: relative;
 
       min-height: 580px;
 
       overflow: hidden;
 
-      border: 1px solid #262626;
+      border: 1px solid #2d2d2d;
 
       background: #0b0b0b;
 
@@ -402,105 +663,173 @@
       transition:
         transform .25s ease,
         border-color .25s ease;
+
     }
+
 
     .show-card:hover {
+
       transform: translateY(-4px);
-      border-color: #555;
+
+      border-color: #5a5a5a;
+
     }
 
+
     .show-card-image {
+
       position: absolute;
+
       inset: 0;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
-      object-position: center center;
+
+      object-position: center;
 
       z-index: -3;
+
     }
 
+
     .show-card::before {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: -2;
 
       background:
+
         linear-gradient(
           to bottom,
-          rgba(0,0,0,.02) 0%,
-          rgba(0,0,0,.08) 36%,
-          rgba(0,0,0,.67) 64%,
-          rgba(0,0,0,.94) 82%,
+          rgba(0,0,0,.04) 0%,
+          rgba(0,0,0,.13) 35%,
+          rgba(0,0,0,.74) 65%,
           #050505 100%
         );
+
     }
 
+
     .show-card::after {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: -1;
 
       background:
+
         linear-gradient(
           to right,
-          rgba(0,0,0,.30),
-          transparent 45%
+          rgba(0,0,0,.25),
+          transparent 55%
         );
+
     }
 
+
     .show-card-content {
+
       min-height: 580px;
 
       padding: 34px;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: flex-end;
+
+      align-items: flex-start;
+
     }
 
-    .show-type {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
 
-      width: max-content;
-      max-width: 100%;
+    /*
+       IMPORTANT:
+       Badge height fix.
+       Prevents the giant rectangle issue.
+    */
 
-      align-self: flex-start;
+    .show-type,
+    .show-type.school {
 
-      padding: 10px 14px;
+      display: inline-flex !important;
+
+      align-items: center !important;
+
+      justify-content: center !important;
+
+      width: auto !important;
+
+      max-width: max-content !important;
+
+      height: auto !important;
+
+      min-height: 0 !important;
+
+      max-height: none !important;
+
+      flex:
+        0
+        0
+        auto !important;
+
+      align-self: flex-start !important;
+
+      padding:
+        11px
+        15px !important;
 
       margin-bottom: auto;
 
       text-transform: uppercase;
+
       letter-spacing: .12em;
 
-      font-size: 12px;
-      line-height: 1;
-      font-weight: 900;
+      font-size: 12px !important;
+
+      line-height: 1 !important;
+
+      font-weight: 900 !important;
+
+      white-space: nowrap !important;
 
       background: var(--red);
+
       color: #fff;
+
     }
+
 
     .show-type.school {
-      background: var(--school);
-      color: #050505;
+
+      background:
+        var(--school) !important;
+
+      color:
+        #050505 !important;
+
     }
 
+
     .show-date {
+
       color: var(--red);
 
       text-transform: uppercase;
+
       letter-spacing: .12em;
 
       font-weight: 900;
@@ -508,14 +837,26 @@
       margin-bottom: 12px;
 
       font-size: 14px;
+
     }
 
-    .show-card.school-card .show-date {
+
+    .school-card .show-date {
+
       color: var(--school);
+
     }
+
 
     .show-card h3 {
-      font-size: clamp(36px, 4vw, 58px);
+
+      font-size:
+        clamp(
+          36px,
+          4vw,
+          58px
+        );
+
       line-height: .95;
 
       letter-spacing: -.04em;
@@ -523,39 +864,63 @@
       text-transform: uppercase;
 
       margin-bottom: 16px;
+
+      font-weight: 900;
+
+      text-shadow:
+        0 2px 10px #000;
+
     }
 
+
     .show-project {
-      color: #d8d8d8;
+
+      color: #eee;
 
       font-size: 16px;
-      font-weight: 700;
+
+      font-weight: 900;
 
       text-transform: uppercase;
 
       margin-bottom: 10px;
+
+      text-shadow:
+        0 2px 8px #000;
+
     }
 
+
     .show-location {
-      color: #bcbcbc;
+
+      color: #d2d2d2;
 
       line-height: 1.5;
 
       font-size: 16px;
 
       margin-bottom: 24px;
+
+      text-shadow:
+        0 2px 8px #000;
+
     }
 
+
     .show-buy {
+
       width: 100%;
 
-      min-height: 58px;
+      min-height: 60px;
 
       background: var(--red);
+
       color: #fff;
 
       display: flex;
+
       justify-content: center;
+
       align-items: center;
 
       padding: 15px 18px;
@@ -563,6 +928,7 @@
       text-transform: uppercase;
 
       font-size: 14px;
+
       font-weight: 900;
 
       letter-spacing: .03em;
@@ -570,20 +936,32 @@
       transition:
         background .2s ease,
         transform .2s ease;
+
     }
+
 
     .show-buy:hover {
-      background: #e90025;
+
+      background: var(--red-dark);
+
       transform: translateY(-2px);
+
     }
+
 
     .school-card .show-buy {
+
       background: var(--school);
+
       color: #050505;
+
     }
 
+
     .school-card .show-buy:hover {
-      background: #43c7ed;
+
+      background: #58cced;
+
     }
 
 
@@ -592,72 +970,83 @@
     ================================================== */
 
     .videos {
-      padding: 120px 0;
 
-      border-top: 1px solid var(--gray-dark);
+      padding:
+        120px
+        0;
+
+      border-top:
+        1px solid var(--gray-dark);
+
+      background: #050505;
+
     }
 
+
     .video-layout {
+
       margin-top: 58px;
 
       display: grid;
 
-      grid-template-columns: .85fr 1.15fr;
+      grid-template-columns:
+        .75fr
+        1.25fr;
 
-      gap: 54px;
+      gap: 58px;
 
       align-items: center;
+
     }
+
 
     .video-copy p {
-      color: var(--gray);
+
+      color: var(--gray-light);
 
       font-size: 21px;
+
+      font-weight: 500;
+
       line-height: 1.7;
 
-      margin-bottom: 30px;
+      margin-bottom: 32px;
+
     }
 
-    .video-image {
+
+    .video-player {
+
       position: relative;
 
-      aspect-ratio: 16 / 10;
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
 
       overflow: hidden;
 
-      border: 1px solid #333;
+      border: 1px solid #383838;
+
+      background: #000;
+
+      box-shadow:
+        0 25px 80px rgba(0,0,0,.38);
+
     }
 
-    .video-image img {
-      width: 100%;
-      height: 100%;
 
-      object-fit: cover;
-    }
+    .video-player iframe {
 
-    .play {
       position: absolute;
 
-      left: 50%;
-      top: 50%;
+      inset: 0;
 
-      transform: translate(-50%, -50%);
+      width: 100%;
 
-      width: 96px;
-      height: 96px;
+      height: 100%;
 
-      border: 3px solid white;
-      border-radius: 50%;
+      border: 0;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: rgba(0,0,0,.42);
-
-      font-size: 34px;
-
-      backdrop-filter: blur(6px);
     }
 
 
@@ -666,24 +1055,37 @@
     ================================================== */
 
     .about {
-      padding: 120px 0 0;
+
+      padding:
+        120px
+        0
+        0;
 
       background: #080808;
 
-      border-top: 1px solid var(--gray-dark);
+      border-top:
+        1px solid var(--gray-dark);
+
     }
 
+
     .about-grid {
+
       display: grid;
 
-      grid-template-columns: .85fr 1.15fr;
+      grid-template-columns:
+        .85fr
+        1.15fr;
 
       align-items: center;
 
       gap: 70px;
+
     }
 
+
     .portrait-wrap {
+
       width: 100%;
 
       aspect-ratio: 4 / 5;
@@ -691,71 +1093,127 @@
       overflow: hidden;
 
       background: #000;
+
     }
 
+
     .portrait-wrap img {
+
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
+
       object-position: center 22%;
+
     }
+
 
     .about-copy .section-title {
-      font-size: clamp(58px, 7vw, 105px);
+
+      font-size:
+        clamp(
+          58px,
+          6.6vw,
+          100px
+        );
+
     }
+
 
     .about-copy .red {
+
       color: var(--red);
+
     }
 
+
     .stats {
-      width: min(1180px, calc(100% - 64px));
 
-      margin: 90px auto 0;
+      width:
+        min(
+          var(--container),
+          calc(100% - 64px)
+        );
 
-      border-top: 1px solid #292929;
-      border-bottom: 1px solid #292929;
+      margin:
+        82px
+        auto
+        0;
+
+      border-top:
+        1px solid #292929;
+
+      border-bottom:
+        1px solid #292929;
 
       display: grid;
 
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:
+        repeat(
+          3,
+          1fr
+        );
+
     }
+
 
     .stat {
-      padding: 50px 34px;
+
+      padding:
+        42px
+        24px;
 
       text-align: center;
+
     }
+
 
     .stat + .stat {
-      border-left: 1px solid #292929;
+
+      border-left:
+        1px solid #292929;
+
     }
 
+
     .stat strong {
+
       display: block;
 
       color: var(--red);
 
-      font-size: clamp(56px, 6vw, 88px);
+      font-size:
+        clamp(
+          56px,
+          5.8vw,
+          82px
+        );
+
       line-height: .85;
 
       letter-spacing: -.05em;
+
     }
 
+
     .stat span {
+
       display: block;
 
-      color: #bcbcbc;
+      color: #c0c0c0;
 
       font-weight: 900;
 
       text-transform: uppercase;
+
       letter-spacing: .12em;
 
-      margin-top: 20px;
+      margin-top: 18px;
 
-      font-size: 13px;
+      font-size: 12px;
+
     }
 
 
@@ -764,94 +1222,126 @@
     ================================================== */
 
     .school {
-      position: relative;
 
-      padding-bottom: 120px;
+      padding-bottom: 125px;
 
       background: #050505;
+
+      position: relative;
+
     }
 
+
     .school-photo {
+
       width: 100%;
 
-      height: clamp(430px, 48vw, 650px);
+      position: relative;
 
       overflow: hidden;
 
-      position: relative;
+      background: #000;
 
-      background: #050505;
     }
 
+
+    .school-photo img {
+
+      width: 100%;
+
+      height: auto;
+
+      max-height: 680px;
+
+      object-fit: cover;
+
+      object-position: center center;
+
+    }
+
+
     .school-photo::after {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
+      pointer-events: none;
+
       background:
+
         linear-gradient(
           to bottom,
-          rgba(0,0,0,0) 0%,
-          rgba(0,0,0,.02) 58%,
-          rgba(0,0,0,.42) 82%,
+          transparent 48%,
+          rgba(5,5,5,.20) 68%,
           #050505 100%
         );
+
     }
 
-    .school-photo img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-      object-position: center 42%;
-    }
 
     /*
-      El contenido ahora sube sobre la foto.
-      La foto y Escuela dejan de sentirse
-      como dos bloques separados.
+       The content slightly overlaps the photo.
+       This visually joins photo + school information.
     */
 
     .school-content {
+
       position: relative;
 
-      z-index: 5;
+      z-index: 2;
 
-      margin-top: -90px;
+      margin-top: -70px;
 
       padding:
-        38px
-        42px
-        46px;
-
-      max-width: 940px;
-
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 3px;
+        55px
+        55px
+        58px;
 
       background:
-        linear-gradient(
-          135deg,
-          rgba(9,9,9,.93),
-          rgba(5,5,5,.82)
-        );
+        rgba(5,5,5,.97);
 
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      border:
+        1px solid #202020;
 
       box-shadow:
-        0 30px 80px rgba(0,0,0,.40);
+        0 -20px 80px rgba(0,0,0,.30);
+
     }
+
+
+    .school-content::before {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      top: 0;
+
+      width: 105px;
+
+      height: 4px;
+
+      background: var(--school);
+
+    }
+
 
     .school-content .section-title {
+
       max-width: 900px;
+
     }
 
+
     .school-content .section-copy {
+
       margin-bottom: 38px;
 
-      color: #c9c9c9;
     }
 
 
@@ -860,26 +1350,39 @@
     ================================================== */
 
     footer {
-      border-top: 1px solid #222;
+
+      border-top:
+        1px solid #222;
 
       text-align: center;
 
-      padding: 70px 20px 90px;
+      padding:
+        70px
+        20px
+        105px;
 
       background: #030303;
+
     }
 
+
     footer strong {
+
       font-size: 27px;
 
       text-transform: uppercase;
+
       letter-spacing: .04em;
+
     }
 
+
     footer p {
+
       color: #777;
 
       margin-top: 14px;
+
     }
 
 
@@ -889,378 +1392,465 @@
 
     @media (max-width: 820px) {
 
+
       body {
-        /*
-          Espacio para el dock inferior.
-        */
-        padding-bottom: 82px;
+
+        padding-bottom:
+          calc(
+            90px
+            + env(safe-area-inset-bottom)
+          );
+
       }
 
+
       section {
-        scroll-margin-top: 30px;
+
+        scroll-margin-top: 20px;
+
       }
+
 
       .container,
       .hero-content,
       .stats {
-        width: calc(100% - 38px);
+
+        width:
+          calc(
+            100% - 38px
+          );
+
       }
 
 
-      /* ===============================
-         NAVEGACIÓN MOBILE
-      =============================== */
+      /* ----------------------------------------------
+         MOBILE NAVIGATION
+      ---------------------------------------------- */
 
       .site-nav {
+
         top: auto;
 
         bottom:
           max(
-            12px,
+            18px,
             env(safe-area-inset-bottom)
           );
 
-        width: calc(100% - 28px);
+        width:
+          calc(
+            100% - 38px
+          );
 
-        max-width: 500px;
+        max-width: 660px;
+
+        justify-content:
+          space-between;
 
         padding: 6px;
 
-        justify-content: space-between;
+        background:
+          rgba(3,3,3,.92);
 
-        border-radius: 22px;
+        border-color:
+          rgba(255,255,255,.16);
 
-        background: rgba(5,5,5,.82);
       }
 
-      .site-nav a {
+
+      .nav-link {
+
         flex: 1;
 
         min-width: 0;
-        min-height: 50px;
 
-        padding: 0 4px;
-
-        font-size: 9px;
-        letter-spacing: .035em;
-
-        border-radius: 17px;
-      }
-
-
-      /* ===============================
-         HERO MOBILE
-      =============================== */
-
-      .hero {
-        min-height: 100svh;
-
-        display: flex;
-        align-items: flex-end;
-      }
-
-      .hero-image {
-        position: absolute;
-        inset: 0;
-
-        width: 100%;
-        height: 100%;
-
-        object-fit: cover;
-        object-position: center 18%;
-      }
-
-      /*
-        Más protección exactamente
-        detrás de las letras.
-      */
-
-      .hero::before {
-        background:
-          linear-gradient(
-            90deg,
-            rgba(0,0,0,.32),
-            rgba(0,0,0,.04) 80%
-          );
-      }
-
-      .hero::after {
-        background:
-          linear-gradient(
-            to bottom,
-            rgba(0,0,0,.03) 0%,
-            rgba(0,0,0,.02) 30%,
-            rgba(0,0,0,.19) 48%,
-            rgba(0,0,0,.68) 70%,
-            rgba(0,0,0,.98) 100%
-          );
-      }
-
-      .hero-content {
-        position: relative;
-
-        width: calc(100% - 38px);
+        height: 62px;
 
         padding:
-          max(90px, env(safe-area-inset-top))
           0
-          34px;
+          9px;
+
+        font-size: 11px;
+
       }
 
-      .hero-kicker {
-        font-size: 12px;
 
-        margin-bottom: 13px;
+      /* ----------------------------------------------
+         MOBILE HERO
+      ---------------------------------------------- */
+
+      .hero {
+
+        min-height: auto;
+
+        display: block;
+
+        padding-top: 0;
+
+        background: #000;
+
       }
+
+
+      .hero::before {
+
+        display: none;
+
+      }
+
+
+      .hero-image {
+
+        position: relative;
+
+        inset: auto;
+
+        width: 100%;
+
+        height: auto;
+
+        aspect-ratio: 4 / 5.35;
+
+        object-fit: cover;
+
+        object-position: center 18%;
+
+        z-index: 0;
+
+      }
+
+
+      .hero::after {
+
+        z-index: 1;
+
+        background:
+
+          linear-gradient(
+            to bottom,
+            rgba(0,0,0,.02) 0%,
+            rgba(0,0,0,.04) 45%,
+            rgba(0,0,0,.28) 68%,
+            rgba(0,0,0,.82) 94%,
+            #050505 100%
+          );
+
+      }
+
+
+      .hero-content {
+
+        position: absolute;
+
+        z-index: 2;
+
+        left: 19px;
+
+        right: 19px;
+
+        bottom: 0;
+
+        width: auto;
+
+        padding:
+          0
+          0
+          30px;
+
+      }
+
 
       .hero h1 {
-        font-size: clamp(66px, 17vw, 108px);
 
-        line-height: .78;
+        font-size:
+          clamp(
+            70px,
+            17vw,
+            110px
+          );
 
-        font-weight: 900;
+        font-weight: 500;
 
-        /*
-          Más legibilidad sin quitar
-          la sensación de póster.
-        */
+        line-height: .77;
 
-        text-shadow:
-          0 3px 7px rgba(0,0,0,.90),
-          0 10px 26px rgba(0,0,0,.60);
       }
+
 
       .hero-script {
-        font-size: clamp(39px, 10vw, 64px);
 
-        margin-top: 27px;
+        font-size:
+          clamp(
+            42px,
+            10.5vw,
+            68px
+          );
 
-        font-weight: 700;
+        margin-top: 30px;
+
       }
+
 
       .hero-description {
-        margin-top: 24px;
 
-        font-size: 12px;
-        line-height: 1.5;
+        font-size: 13px;
 
-        max-width: 94%;
+        margin-top: 28px;
+
       }
 
+
       .hero-actions {
+
         display: grid;
 
         grid-template-columns: 1fr;
 
-        gap: 11px;
+        gap: 12px;
 
-        margin-top: 27px;
+        margin-top: 28px;
+
       }
+
 
       .btn {
+
         width: 100%;
 
-        min-height: 62px;
       }
 
 
-      /* ===============================
-         SHOWS MOBILE
-      =============================== */
+      /* ----------------------------------------------
+         MOBILE SECTIONS
+      ---------------------------------------------- */
 
       .shows-section,
       .videos,
       .about {
-        padding-top: 85px;
+
+        padding-top: 86px;
+
       }
+
 
       .shows-section {
-        padding-bottom: 90px;
+
+        padding-bottom: 95px;
+
       }
 
-      .shows-intro {
-        margin-bottom: 46px;
-      }
 
       .shows-grid {
+
         display: flex;
 
         overflow-x: auto;
 
-        scroll-snap-type: x mandatory;
-        scroll-padding-left: 0;
+        scroll-snap-type:
+          x mandatory;
 
         gap: 16px;
 
         padding-right: 20px;
 
         scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
+
       }
+
 
       .shows-grid::-webkit-scrollbar {
+
         display: none;
+
       }
 
+
       .show-card {
-        flex: 0 0 88%;
+
+        flex:
+          0
+          0
+          86%;
 
         min-height: 520px;
 
         scroll-snap-align: start;
+
       }
+
 
       .show-card-content {
+
         min-height: 520px;
 
-        padding: 23px;
+        padding: 24px;
+
       }
 
-      .show-type {
-        flex: 0 0 auto;
-
-        width: auto;
-
-        max-width: calc(100% - 8px);
-
-        padding: 9px 11px;
-
-        font-size: 10px;
-      }
 
       .show-card h3 {
-        font-size: 40px;
-      }
 
-      .show-project {
-        font-size: 14px;
-      }
+        font-size: 42px;
 
-      .show-location {
-        font-size: 15px;
       }
 
 
-      /* ===============================
-         VIDEO / ABOUT
-      =============================== */
+      .show-type,
+      .show-type.school {
 
-      .video-layout,
-      .about-grid {
-        grid-template-columns: 1fr;
+        padding:
+          10px
+          13px !important;
+
+        font-size:
+          11px !important;
+
       }
+
+
+      /* ----------------------------------------------
+         MOBILE VIDEO
+      ---------------------------------------------- */
 
       .video-layout {
+
+        grid-template-columns: 1fr;
+
         gap: 38px;
+
       }
+
+
+      .video-player {
+
+        aspect-ratio: 16 / 9;
+
+      }
+
+
+      /* ----------------------------------------------
+         MOBILE ABOUT
+      ---------------------------------------------- */
 
       .about-grid {
+
+        grid-template-columns: 1fr;
+
         gap: 55px;
+
       }
+
 
       .portrait-wrap {
+
         aspect-ratio: 4 / 5;
+
       }
 
-      .portrait-wrap img {
-        object-position: center 18%;
-      }
-
-
-      /* ===============================
-         STATS
-      =============================== */
 
       .stats {
-        grid-template-columns: repeat(3, 1fr);
+
+        grid-template-columns:
+          repeat(
+            3,
+            1fr
+          );
 
         margin-top: 65px;
+
       }
+
 
       .stat {
-        padding: 31px 4px;
+
+        padding:
+          32px
+          5px;
+
       }
+
 
       .stat strong {
-        font-size: clamp(43px, 13vw, 70px);
+
+        font-size:
+          clamp(
+            43px,
+            13vw,
+            70px
+          );
+
       }
 
+
       .stat span {
-        font-size: 9px;
+
+        font-size: 10px;
 
         line-height: 1.3;
 
-        letter-spacing: .06em;
+        letter-spacing: .07em;
+
       }
 
 
-      /* ===============================
-         ESCUELA MOBILE
-      =============================== */
-
-      .school {
-        padding-bottom: 85px;
-      }
-
-      .school-photo {
-        height: auto;
-
-        aspect-ratio: 4 / 3;
-
-        max-height: none;
-      }
+      /* ----------------------------------------------
+         MOBILE SCHOOL
+      ---------------------------------------------- */
 
       .school-photo img {
-        width: 100%;
-        height: 100%;
 
-        object-fit: cover;
-        object-position: center 44%;
+        height: auto;
+
+        max-height: none;
+
+        object-fit: contain;
+
       }
 
-      .school-photo::after {
-        background:
-          linear-gradient(
-            to bottom,
-            rgba(0,0,0,0) 0%,
-            rgba(0,0,0,0) 58%,
-            rgba(0,0,0,.42) 79%,
-            #050505 100%
-          );
-      }
-
-      /*
-        En móvil el texto sube bastante
-        sobre la zona inferior oscura de la foto.
-      */
 
       .school-content {
-        width: calc(100% - 38px);
 
-        margin-top: -58px;
+        width:
+          calc(
+            100% - 38px
+          );
+
+        margin:
+          -42px
+          auto
+          0;
 
         padding:
-          27px
-          22px
-          30px;
+          42px
+          28px
+          48px;
 
-        border-radius: 2px;
       }
+
 
       .school-content .section-title {
-        font-size: clamp(48px, 14vw, 70px);
+
+        font-size: 14.5vw;
+
       }
 
-      .school-content .section-copy {
+
+      .section-copy {
+
         font-size: 18px;
+
       }
 
-      .play {
-        width: 76px;
-        height: 76px;
 
-        font-size: 28px;
+      footer {
+
+        padding-bottom:
+          calc(
+            120px
+            + env(safe-area-inset-bottom)
+          );
+
       }
+
     }
 
 
@@ -1270,59 +1860,119 @@
 
     @media (max-width: 450px) {
 
-      .hero {
-        min-height: 100svh;
-      }
 
       .hero-image {
-        object-position: center 17%;
+
+        aspect-ratio:
+          4 / 5.35;
+
       }
 
-      .hero-content {
-        padding-bottom: 26px;
-      }
 
       .hero h1 {
-        font-size: 16.5vw;
+
+        font-size: 17vw;
+
       }
+
 
       .hero-script {
-        font-size: 9.7vw;
+
+        font-size: 10.5vw;
+
       }
 
-      .hero-description {
-        max-width: 90%;
-      }
 
       .section-title {
-        font-size: 15.5vw;
+
+        font-size: 16vw;
+
       }
+
 
       .show-card {
+
         flex-basis: 91%;
+
       }
 
-      .show-card h3 {
-        font-size: 38px;
+
+      .nav-link {
+
+        font-size: 10px;
+
+        height: 58px;
+
       }
 
-      .school-photo {
-        aspect-ratio: 1 / .82;
-      }
 
       .school-content {
-        margin-top: -42px;
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
       }
+
+    }
+
+
+    /* ==================================================
+       LARGE DESKTOP HERO
+    ================================================== */
+
+    @media (min-width: 821px) {
+
+
+      /*
+         Main fix for desktop.
+
+         Instead of forcing the portrait photo to cover
+         a very wide monitor, it is shown completely,
+         preserving a composition closer to mobile.
+
+         The blurred duplicate only fills unused side areas.
+      */
+
+      .hero {
+
+        min-height:
+          max(
+            100vh,
+            780px
+          );
+
+      }
+
+
+      .hero-image {
+
+        object-fit: contain;
+
+        object-position:
+          center center;
+
+      }
+
+
+      .hero-content {
+
+        padding-bottom: 62px;
+
+      }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
 
   <!-- ==================================================
-       NAVEGACIÓN
+       FLOATING NAVIGATION
   ================================================== -->
 
   <nav
@@ -1330,26 +1980,40 @@
     aria-label="Navegación principal"
   >
 
-    <a href="#inicio">
+    <a
+      class="nav-link active"
+      href="#inicio"
+      data-section="inicio"
+    >
       Inicio
     </a>
 
     <a
+      class="nav-link"
       href="#shows"
-      class="nav-tickets"
+      data-section="shows"
     >
       Entradas
     </a>
 
-    <a href="#videos">
+    <a
+      class="nav-link"
+      href="#videos"
+      data-section="videos"
+    >
       Videos
     </a>
 
-    <a href="#escuela">
+    <a
+      class="nav-link"
+      href="#escuela"
+      data-section="escuela"
+    >
       Escuela
     </a>
 
   </nav>
+
 
 
   <!-- ==================================================
@@ -1367,47 +2031,73 @@
       alt="Luis Boicot haciendo stand up comedy"
     >
 
+
     <div class="hero-content">
 
+
       <div class="hero-kicker">
+
         Sitio oficial
+
       </div>
+
 
       <h1>
+
         Luis<br>
+
         Boicot
+
       </h1>
 
+
       <div class="hero-script">
+
         Stand Up Comedy
+
       </div>
 
+
       <p class="hero-description">
+
         Comedia. Música. Historias reales.<br>
+
         Paternidad. Vida. Verdad.
+
       </p>
 
+
       <div class="hero-actions">
+
 
         <a
           class="btn btn-primary"
           href="#shows"
         >
+
           Próximos shows
+
         </a>
+
 
         <a
           class="btn btn-outline"
           href="#videos"
         >
+
           Ver videos
+
         </a>
+
 
       </div>
 
+
     </div>
 
+
   </section>
+
 
 
   <!-- ==================================================
@@ -1419,33 +2109,49 @@
     id="shows"
   >
 
+
     <div class="container">
+
 
       <div class="shows-intro">
 
+
         <div class="eyebrow">
+
           Próximamente
+
         </div>
 
+
         <h2 class="section-title">
+
           Shows
+
         </h2>
 
+
         <p class="section-copy">
+
           Próximas presentaciones de Luis Boicot y producciones
           de Escuela Clandestina. Compra tus entradas directamente
           desde el sitio oficial.
+
         </p>
 
+
       </div>
+
 
 
       <div class="shows-grid">
 
 
-        <!-- EL REENCUENTRO -->
+        <!-- ===========================================
+             EL REENCUENTRO
+        ============================================ -->
 
         <article class="show-card school-card">
+
 
           <img
             class="show-card-image"
@@ -1453,29 +2159,48 @@
             alt="El Reencuentro de Escuela Clandestina"
           >
 
+
           <div class="show-card-content">
 
+
             <div class="show-type school">
+
               Escuela Clandestina
+
             </div>
+
 
             <div class="show-date">
+
               28 AGO 2026 · 20:00 HRS
+
             </div>
+
 
             <h3>
+
               El<br>
+
               Reencuentro
+
             </h3>
 
+
             <div class="show-project">
+
               Exalumnos vuelven a clases
+
             </div>
 
+
             <div class="show-location">
+
               Santiago<br>
+
               MD Pizzas · Av. Alameda 2145
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1483,17 +2208,25 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Comprar entradas
+
             </a>
 
+
           </div>
+
 
         </article>
 
 
-        <!-- LA SERENA -->
+
+        <!-- ===========================================
+             LA SERENA
+        ============================================ -->
 
         <article class="show-card">
+
 
           <img
             class="show-card-image"
@@ -1501,28 +2234,46 @@
             alt="El Show de Luis Boicot en La Serena"
           >
 
+
           <div class="show-card-content">
 
+
             <div class="show-type">
+
               Luis Boicot · En vivo
+
             </div>
+
 
             <div class="show-date">
+
               05 SEP 2026 · 22:00 HRS
+
             </div>
+
 
             <h3>
+
               La Serena
+
             </h3>
 
+
             <div class="show-project">
+
               El Show de Luis Boicot
+
             </div>
 
+
             <div class="show-location">
+
               Inkubiertos<br>
+
               Huanhuali 790 · La Serena
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1530,47 +2281,74 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Comprar entradas
+
             </a>
 
+
           </div>
+
 
         </article>
 
 
-        <!-- GRADUACIÓN 19:00 -->
+
+        <!-- ===========================================
+             GRADUACIÓN 19:00
+        ============================================ -->
 
         <article class="show-card school-card">
+
 
           <img
             class="show-card-image"
             src="assets/graduacion-19.jpg"
-            alt="La Graduación de Escuela Clandestina sección 19 horas"
+            alt="La Graduación de Escuela Clandestina sección A"
           >
+
 
           <div class="show-card-content">
 
+
             <div class="show-type school">
+
               Escuela Clandestina
+
             </div>
+
 
             <div class="show-date">
+
               12 SEP 2026 · 19:00 HRS
+
             </div>
+
 
             <h3>
+
               La<br>
+
               Graduación
+
             </h3>
 
+
             <div class="show-project">
+
               Sección A · Nueva promoción
+
             </div>
 
+
             <div class="show-location">
+
               Happy People<br>
+
               Rancagua 395 · Providencia
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1578,47 +2356,74 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Entradas · Sección A
+
             </a>
 
+
           </div>
+
 
         </article>
 
 
-        <!-- GRADUACIÓN 22:00 -->
+
+        <!-- ===========================================
+             GRADUACIÓN 22:00
+        ============================================ -->
 
         <article class="show-card school-card">
+
 
           <img
             class="show-card-image"
             src="assets/graduacion-22.jpg"
-            alt="La Graduación de Escuela Clandestina sección 22 horas"
+            alt="La Graduación de Escuela Clandestina sección B"
           >
+
 
           <div class="show-card-content">
 
+
             <div class="show-type school">
+
               Escuela Clandestina
+
             </div>
+
 
             <div class="show-date">
+
               12 SEP 2026 · 22:00 HRS
+
             </div>
+
 
             <h3>
+
               La<br>
+
               Graduación
+
             </h3>
 
+
             <div class="show-project">
+
               Sección B · Nueva promoción
+
             </div>
 
+
             <div class="show-location">
+
               Happy People<br>
+
               Rancagua 395 · Providencia
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1626,17 +2431,25 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Entradas · Sección B
+
             </a>
 
+
           </div>
+
 
         </article>
 
 
-        <!-- ANTOFAGASTA -->
+
+        <!-- ===========================================
+             ANTOFAGASTA
+        ============================================ -->
 
         <article class="show-card">
+
 
           <img
             class="show-card-image"
@@ -1644,28 +2457,46 @@
             alt="El Show de Luis Boicot en Antofagasta"
           >
 
+
           <div class="show-card-content">
 
+
             <div class="show-type">
+
               Luis Boicot · En vivo
+
             </div>
+
 
             <div class="show-date">
+
               09 OCT 2026 · 21:00 HRS
+
             </div>
+
 
             <h3>
+
               Antofagasta
+
             </h3>
 
+
             <div class="show-project">
+
               El Show de Luis Boicot
+
             </div>
 
+
             <div class="show-location">
+
               Cocotuga<br>
+
               Av. Bernardo O'Higgins 1354 · Antofagasta
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1673,19 +2504,26 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Comprar entradas
+
             </a>
 
+
           </div>
+
 
         </article>
 
 
       </div>
 
+
     </div>
 
+
   </section>
+
 
 
   <!-- ==================================================
@@ -1697,53 +2535,103 @@
     id="videos"
   >
 
+
     <div class="container">
 
+
       <div class="eyebrow">
+
         En vivo
+
       </div>
 
+
       <h2 class="section-title">
+
         Videos
+
       </h2>
+
+
 
       <div class="video-layout">
 
+
         <div class="video-copy">
 
+
           <p>
+
             Stand up, comedia musical y crowd work.
-            Fragmentos y shows completos disponibles en YouTube.
+            Mira mis videos, fragmentos y shows publicados
+            directamente en mi canal oficial de YouTube.
+
           </p>
 
+
           <a
-            class="btn btn-outline"
-            href="#"
+            class="btn btn-primary"
+            href="https://www.youtube.com/@luisboicot"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Ir a YouTube
+
+            Ver más en YouTube
+
           </a>
 
-        </div>
-
-
-        <div class="video-image">
-
-          <img
-            src="assets/show-wide.jpg"
-            alt="Luis Boicot presentándose en vivo"
-          >
-
-          <div class="play">
-            ▶
-          </div>
 
         </div>
+
+
+
+        <div class="video-player">
+
+
+          <!--
+            REAL YOUTUBE PLAYER
+
+            UUJtuNzlF3eA6gja0pUfslIw
+            = uploads playlist from Luis Boicot channel.
+
+            When new content is uploaded to the channel,
+            this playlist stays connected to it.
+          -->
+
+          <iframe
+
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=UUJtuNzlF3eA6gja0pUfslIw"
+
+            title="Videos de Luis Boicot en YouTube"
+
+            loading="lazy"
+
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share
+            "
+
+            allowfullscreen
+
+          ></iframe>
+
+
+        </div>
+
 
       </div>
 
+
     </div>
 
+
   </section>
+
 
 
   <!-- ==================================================
@@ -1755,57 +2643,88 @@
     id="sobre-mi"
   >
 
+
     <div class="container">
+
 
       <div class="about-grid">
 
+
         <div class="portrait-wrap">
+
 
           <img
             src="assets/portrait.jpg"
             alt="Luis Boicot en escena"
           >
 
+
         </div>
+
 
 
         <div class="about-copy">
 
+
           <div class="eyebrow">
+
             Sobre mí
+
           </div>
 
+
           <h2 class="section-title">
+
             Historias<br>
+
             reales.<br>
+
             Risas<br>
-            <span class="red">reales.</span>
+
+            <span class="red">
+
+              reales.
+
+            </span>
+
           </h2>
 
+
           <p class="section-copy">
+
             Luis Boicot combina stand up, música,
             improvisación y experiencias reales para
             construir un show cercano, impredecible
             y profundamente personal.
+
           </p>
+
 
         </div>
 
+
       </div>
 
+
     </div>
+
 
 
     <div class="stats">
 
+
       <div class="stat">
 
         <strong>
+
           +20
+
         </strong>
 
         <span>
+
           Ciudades
+
         </span>
 
       </div>
@@ -1814,11 +2733,15 @@
       <div class="stat">
 
         <strong>
+
           3
+
         </strong>
 
         <span>
+
           Países
+
         </span>
 
       </div>
@@ -1827,18 +2750,25 @@
       <div class="stat">
 
         <strong>
+
           +100
+
         </strong>
 
         <span>
+
           Shows en vivo
+
         </span>
 
       </div>
+
 
     </div>
 
+
   </section>
+
 
 
   <!-- ==================================================
@@ -1850,33 +2780,49 @@
     id="escuela"
   >
 
+
     <div class="school-photo">
 
+
       <img
-        src="assets/school.jpg"
+        src="assets/school-graduation.jpg"
         alt="Luis Boicot junto a alumnos graduados de Escuela Clandestina"
       >
+
 
     </div>
 
 
+
     <div class="container school-content">
 
+
       <div class="eyebrow">
+
         Escuela Clandestina
+
       </div>
 
+
       <h2 class="section-title">
+
         Aprende<br>
+
         a hacer<br>
+
         comedia.
+
       </h2>
 
+
       <p class="section-copy">
+
         Talleres de stand up, escritura, remates y
         desarrollo artístico para personas que quieren
         encontrar su propia voz.
+
       </p>
+
 
       <a
         class="btn btn-primary"
@@ -1884,12 +2830,17 @@
         target="_blank"
         rel="noopener noreferrer"
       >
+
         Conocer la escuela
+
       </a>
+
 
     </div>
 
+
   </section>
+
 
 
   <!-- ==================================================
@@ -1898,16 +2849,251 @@
 
   <footer>
 
+
     <strong>
+
       Luis Boicot
+
     </strong>
 
+
     <p>
+
       Stand Up Comedy · Sitio oficial
+
     </p>
+
 
   </footer>
 
 
+
+  <!-- ==================================================
+       NAVIGATION SCROLLSPY
+  ================================================== -->
+
+  <script>
+
+    (() => {
+
+
+      const navLinks =
+        Array.from(
+          document.querySelectorAll(
+            ".nav-link[data-section]"
+          )
+        );
+
+
+      const sectionIds = [
+        "inicio",
+        "shows",
+        "videos",
+        "escuela"
+      ];
+
+
+      const sections =
+        sectionIds
+          .map(
+            id =>
+              document.getElementById(id)
+          )
+          .filter(Boolean);
+
+
+
+      function setActiveSection(id) {
+
+
+        navLinks.forEach(link => {
+
+
+          const active =
+            link.dataset.section === id;
+
+
+          link.classList.toggle(
+            "active",
+            active
+          );
+
+
+          if (active) {
+
+            link.setAttribute(
+              "aria-current",
+              "page"
+            );
+
+          }
+
+          else {
+
+            link.removeAttribute(
+              "aria-current"
+            );
+
+          }
+
+
+        });
+
+
+      }
+
+
+
+      function updateActiveSection() {
+
+
+        /*
+          We evaluate a point around 42% down
+          the visible screen.
+
+          This feels much more natural than waiting
+          until a section reaches the very top.
+        */
+
+        const focusPoint =
+          window.innerHeight * 0.42;
+
+
+        let activeId = "inicio";
+
+
+        sections.forEach(section => {
+
+
+          const rect =
+            section.getBoundingClientRect();
+
+
+          if (
+            rect.top <= focusPoint &&
+            rect.bottom > focusPoint
+          ) {
+
+            activeId =
+              section.id;
+
+          }
+
+
+        });
+
+
+
+        /*
+          ABOUT belongs conceptually to INICIO,
+          because it does not have its own menu item.
+        */
+
+        const about =
+          document.getElementById(
+            "sobre-mi"
+          );
+
+
+        if (about) {
+
+
+          const rect =
+            about.getBoundingClientRect();
+
+
+          if (
+            rect.top <= focusPoint &&
+            rect.bottom > focusPoint
+          ) {
+
+            activeId = "inicio";
+
+          }
+
+
+        }
+
+
+        setActiveSection(activeId);
+
+
+      }
+
+
+
+      let ticking = false;
+
+
+      window.addEventListener(
+        "scroll",
+        () => {
+
+
+          if (!ticking) {
+
+
+            window.requestAnimationFrame(
+              () => {
+
+                updateActiveSection();
+
+                ticking = false;
+
+              }
+            );
+
+
+            ticking = true;
+
+
+          }
+
+
+        },
+        {
+          passive: true
+        }
+      );
+
+
+
+      window.addEventListener(
+        "resize",
+        updateActiveSection
+      );
+
+
+
+      navLinks.forEach(link => {
+
+
+        link.addEventListener(
+          "click",
+          () => {
+
+
+            setActiveSection(
+              link.dataset.section
+            );
+
+
+          }
+        );
+
+
+      });
+
+
+
+      updateActiveSection();
+
+
+    })();
+
+  </script>
+
+
 </body>
+
 </html>
