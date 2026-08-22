@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -18,6 +20,7 @@
   <meta name="theme-color" content="#050505">
 
   <style>
+
     :root {
       --bg: #050505;
       --bg-soft: #090909;
@@ -62,18 +65,24 @@
     }
 
     section {
-      scroll-margin-top: 100px;
+      scroll-margin-top: 90px;
     }
 
     .container {
-      width: min(var(--container), calc(100% - 64px));
+      width: min(
+        var(--container),
+        calc(100% - 64px)
+      );
+
       margin-inline: auto;
     }
 
     .eyebrow {
       color: var(--red);
+
       text-transform: uppercase;
       letter-spacing: .27em;
+
       font-weight: 900;
       font-size: 14px;
       line-height: 1.2;
@@ -81,35 +90,58 @@
 
     .section-title {
       margin-top: 18px;
-      font-size: clamp(52px, 7.5vw, 104px);
+
+      font-size:
+        clamp(52px, 7.5vw, 104px);
+
       line-height: .88;
+
       letter-spacing: -.055em;
+
       text-transform: uppercase;
+
       font-weight: 900;
     }
 
     .section-copy {
       color: var(--gray-light);
-      font-size: clamp(18px, 1.8vw, 23px);
+
+      font-size:
+        clamp(18px, 1.8vw, 23px);
+
       font-weight: 500;
+
       line-height: 1.65;
+
       max-width: 780px;
+
       margin-top: 32px;
     }
 
     .btn {
       min-height: 68px;
+
       padding: 0 32px;
+
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
+
       border: 1px solid #424242;
+
       color: #fff;
+
       font-weight: 900;
+
       text-transform: uppercase;
+
       letter-spacing: .02em;
+
       font-size: 15px;
+
       cursor: pointer;
+
       transition:
         transform .2s ease,
         background .2s ease,
@@ -135,42 +167,59 @@
       background: #080808;
     }
 
+
     /* ==================================================
-       MENÚ
+       MENÚ DESKTOP
     ================================================== */
 
     .site-nav {
+
       position: fixed;
+
       top: 18px;
       left: 50%;
+
       transform: translateX(-50%);
+
       z-index: 9999;
 
       display: flex;
+
       align-items: center;
+
       gap: 4px;
 
       padding: 5px;
 
-      border: 1px solid rgba(255,255,255,.17);
+      border:
+        1px solid rgba(255,255,255,.17);
+
       border-radius: 999px;
 
-      background: rgba(5,5,5,.82);
+      background:
+        rgba(5,5,5,.84);
 
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
 
       box-shadow:
         0 16px 50px rgba(0,0,0,.32);
+
+      transition:
+        opacity .35s ease,
+        transform .35s ease;
     }
 
     .nav-link {
+
       min-width: 92px;
+
       height: 48px;
 
       padding: 0 18px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -179,9 +228,11 @@
       color: #bebebe;
 
       text-transform: uppercase;
+
       letter-spacing: .06em;
 
       font-size: 12px;
+
       font-weight: 900;
 
       transition:
@@ -195,8 +246,9 @@
 
     .nav-link.active {
       background: var(--red);
-      color: white;
+      color: #fff;
     }
+
 
     /* ==================================================
        HERO
@@ -208,20 +260,26 @@
     }
 
     .hero-media {
+
       position: relative;
+
       width: 100%;
+
       min-height: 76vh;
 
       overflow: hidden;
+
       background: #030303;
 
       isolation: isolate;
     }
 
     .hero-media::before {
+
       content: "";
 
       position: absolute;
+
       inset: -30px;
 
       z-index: -3;
@@ -239,22 +297,27 @@
     }
 
     .hero-image {
+
       position: absolute;
+
       inset: 0;
 
       width: 100%;
       height: 100%;
 
       object-fit: contain;
+
       object-position: center center;
 
       z-index: -2;
     }
 
     .hero-media::after {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: -1;
@@ -270,26 +333,39 @@
     }
 
     .hero-title-layer {
+
       position: absolute;
+
       left: 0;
       right: 0;
+
       bottom: 42px;
 
       z-index: 2;
     }
 
     .hero-title-inner {
-      width: min(var(--container), calc(100% - 64px));
+
+      width:
+        min(
+          var(--container),
+          calc(100% - 64px)
+        );
+
       margin-inline: auto;
     }
 
     .hero-kicker {
+
       color: var(--red);
 
       font-weight: 900;
-      font-size: clamp(13px, 1.5vw, 18px);
+
+      font-size:
+        clamp(13px, 1.5vw, 18px);
 
       text-transform: uppercase;
+
       letter-spacing: .30em;
 
       margin-bottom: 18px;
@@ -299,9 +375,14 @@
     }
 
     .hero h1 {
-      font-size: clamp(78px, 9vw, 145px);
+
+      font-size:
+        clamp(78px, 9vw, 145px);
+
       line-height: .77;
+
       letter-spacing: -.07em;
+
       font-weight: 500;
 
       text-transform: uppercase;
@@ -310,17 +391,31 @@
         0 4px 24px rgba(0,0,0,.7);
     }
 
+
+    /* ==================================================
+       HERO INFORMACIÓN
+    ================================================== */
+
     .hero-info {
+
       background: #050505;
+
       padding: 46px 0 72px;
     }
 
     .hero-info-inner {
-      width: min(var(--container), calc(100% - 64px));
+
+      width:
+        min(
+          var(--container),
+          calc(100% - 64px)
+        );
+
       margin-inline: auto;
     }
 
     .hero-script {
+
       color: var(--red);
 
       font-family:
@@ -329,27 +424,35 @@
         serif;
 
       font-style: italic;
+
       font-weight: 700;
 
-      font-size: clamp(46px, 5vw, 76px);
+      font-size:
+        clamp(46px, 5vw, 76px);
+
       line-height: 1;
     }
 
     .hero-description {
+
       text-transform: uppercase;
 
       font-weight: 900;
+
       line-height: 1.5;
 
       margin-top: 28px;
 
       max-width: 650px;
 
-      font-size: clamp(14px, 1.4vw, 18px);
+      font-size:
+        clamp(14px, 1.4vw, 18px);
     }
 
     .hero-actions {
+
       display: flex;
+
       gap: 16px;
 
       margin-top: 34px;
@@ -357,12 +460,15 @@
       max-width: 700px;
     }
 
+
     /* ==================================================
        SHOWS
     ================================================== */
 
     .shows-section {
-      padding: 110px 0 130px;
+
+      padding:
+        110px 0 130px;
 
       border-top:
         1px solid #181818;
@@ -375,6 +481,7 @@
     }
 
     .shows-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -384,6 +491,7 @@
     }
 
     .show-card {
+
       position: relative;
 
       min-height: 580px;
@@ -403,27 +511,34 @@
     }
 
     .show-card:hover {
+
       transform: translateY(-4px);
+
       border-color: #5a5a5a;
     }
 
     .show-card-image {
+
       position: absolute;
+
       inset: 0;
 
       width: 100%;
       height: 100%;
 
       object-fit: cover;
+
       object-position: center;
 
       z-index: -3;
     }
 
     .show-card::before {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       z-index: -2;
@@ -439,43 +554,52 @@
     }
 
     .show-card-content {
+
       min-height: 580px;
 
       padding: 34px;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: flex-end;
+
       align-items: flex-start;
     }
 
     .show-type,
     .show-type.school {
+
       display: inline-flex !important;
 
       align-items: center !important;
+
       justify-content: center !important;
 
       width: auto !important;
+
       max-width: max-content !important;
 
       height: auto !important;
 
       min-height: 0 !important;
-      max-height: none !important;
 
       flex: 0 0 auto !important;
 
       align-self: flex-start !important;
 
-      padding: 11px 15px !important;
+      padding:
+        11px 15px !important;
 
       margin-bottom: auto;
 
       text-transform: uppercase;
+
       letter-spacing: .12em;
 
       font-size: 12px !important;
+
       line-height: 1 !important;
 
       font-weight: 900 !important;
@@ -483,10 +607,12 @@
       white-space: nowrap !important;
 
       background: var(--red);
+
       color: #fff;
     }
 
     .show-type.school {
+
       background:
         var(--school) !important;
 
@@ -495,9 +621,11 @@
     }
 
     .show-date {
+
       color: var(--red);
 
       text-transform: uppercase;
+
       letter-spacing: .12em;
 
       font-weight: 900;
@@ -512,10 +640,12 @@
     }
 
     .show-card h3 {
+
       font-size:
         clamp(36px, 4vw, 58px);
 
       line-height: .95;
+
       letter-spacing: -.04em;
 
       text-transform: uppercase;
@@ -529,9 +659,11 @@
     }
 
     .show-project {
+
       color: #eee;
 
       font-size: 16px;
+
       font-weight: 900;
 
       text-transform: uppercase;
@@ -543,6 +675,7 @@
     }
 
     .show-location {
+
       color: #d2d2d2;
 
       line-height: 1.5;
@@ -556,37 +689,47 @@
     }
 
     .show-buy {
+
       width: 100%;
 
       min-height: 60px;
 
       background: var(--red);
+
       color: #fff;
 
       display: flex;
+
       justify-content: center;
+
       align-items: center;
 
-      padding: 15px 18px;
+      padding:
+        15px 18px;
 
       text-transform: uppercase;
 
       font-size: 14px;
+
       font-weight: 900;
 
       letter-spacing: .03em;
     }
 
     .school-card .show-buy {
+
       background: var(--school);
+
       color: #050505;
     }
+
 
     /* ==================================================
        VIDEOS
     ================================================== */
 
     .videos {
+
       padding: 120px 0;
 
       border-top:
@@ -596,6 +739,7 @@
     }
 
     .video-layout {
+
       margin-top: 58px;
 
       display: grid;
@@ -609,9 +753,11 @@
     }
 
     .video-copy p {
+
       color: var(--gray-light);
 
       font-size: 21px;
+
       font-weight: 500;
 
       line-height: 1.7;
@@ -620,9 +766,11 @@
     }
 
     .video-player {
+
       position: relative;
 
       width: 100%;
+
       aspect-ratio: 16 / 9;
 
       overflow: hidden;
@@ -637,21 +785,27 @@
     }
 
     .video-player iframe {
+
       position: absolute;
+
       inset: 0;
 
       width: 100%;
+
       height: 100%;
 
       border: 0;
     }
+
 
     /* ==================================================
        SOBRE MÍ
     ================================================== */
 
     .about {
-      padding: 120px 0 0;
+
+      padding:
+        120px 0 0;
 
       background: #080808;
 
@@ -660,6 +814,7 @@
     }
 
     .about-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -671,6 +826,7 @@
     }
 
     .portrait-wrap {
+
       width: 100%;
 
       aspect-ratio: 4 / 5;
@@ -681,14 +837,18 @@
     }
 
     .portrait-wrap img {
+
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
+
       object-position: center 22%;
     }
 
     .about-copy .section-title {
+
       font-size:
         clamp(58px, 6.6vw, 100px);
     }
@@ -698,13 +858,15 @@
     }
 
     .stats {
+
       width:
         min(
           var(--container),
           calc(100% - 64px)
         );
 
-      margin: 82px auto 0;
+      margin:
+        82px auto 0;
 
       border-top:
         1px solid #292929;
@@ -719,16 +881,21 @@
     }
 
     .stat {
-      padding: 42px 24px;
+
+      padding:
+        42px 24px;
+
       text-align: center;
     }
 
     .stat + .stat {
+
       border-left:
         1px solid #292929;
     }
 
     .stat strong {
+
       display: block;
 
       color: var(--red);
@@ -742,6 +909,7 @@
     }
 
     .stat span {
+
       display: block;
 
       color: #c0c0c0;
@@ -757,11 +925,14 @@
       font-size: 12px;
     }
 
+
     /* ==================================================
        ESCUELA
+       FOTO: assets/school.jpg
     ================================================== */
 
     .school {
+
       padding-bottom: 125px;
 
       background: #050505;
@@ -770,6 +941,7 @@
     }
 
     .school-photo {
+
       position: relative;
 
       width: 100%;
@@ -780,19 +952,24 @@
     }
 
     .school-photo img {
+
       display: block;
 
       width: 100%;
+
       height: auto;
 
       object-fit: contain;
+
       object-position: center center;
     }
 
     .school-photo::after {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       pointer-events: none;
@@ -807,6 +984,7 @@
     }
 
     .school-content {
+
       position: relative;
 
       z-index: 2;
@@ -814,9 +992,7 @@
       margin-top: -54px;
 
       padding:
-        54px
-        55px
-        58px;
+        54px 55px 58px;
 
       background:
         rgba(5,5,5,.98);
@@ -829,6 +1005,7 @@
     }
 
     .school-content::before {
+
       content: "";
 
       position: absolute;
@@ -837,10 +1014,10 @@
       top: 0;
 
       width: 105px;
+
       height: 4px;
 
-      background:
-        var(--school);
+      background: var(--school);
     }
 
     .school-content .section-title {
@@ -851,25 +1028,26 @@
       margin-bottom: 38px;
     }
 
+
     /* ==================================================
        FOOTER
     ================================================== */
 
     footer {
+
       border-top:
         1px solid #222;
 
       text-align: center;
 
       padding:
-        70px
-        20px
-        105px;
+        70px 20px 105px;
 
       background: #030303;
     }
 
     footer strong {
+
       font-size: 27px;
 
       text-transform: uppercase;
@@ -878,9 +1056,12 @@
     }
 
     footer p {
+
       color: #777;
+
       margin-top: 14px;
     }
+
 
     /* ==================================================
        MOBILE
@@ -889,28 +1070,34 @@
     @media (max-width: 820px) {
 
       body {
+
         padding-bottom:
           calc(
-            110px +
+            100px +
             env(safe-area-inset-bottom)
           );
       }
 
       section {
-        scroll-margin-top: 20px;
+        scroll-margin-top: 12px;
       }
 
       .container,
       .stats {
+
         width:
           calc(100% - 38px);
       }
 
+
       /* ================================================
-         MENÚ INFERIOR MÁS COMPACTO
+         MENÚ MÓVIL
+
+         OCULTO EN PORTADA
       ================================================= */
 
       .site-nav {
+
         top: auto;
 
         bottom:
@@ -924,43 +1111,75 @@
 
         max-width: 660px;
 
-        justify-content: space-between;
+        justify-content:
+          space-between;
 
         padding: 5px;
 
         background:
-          rgba(3,3,3,.94);
+          rgba(3,3,3,.95);
 
         border-color:
-          rgba(255,255,255,.16);
+          rgba(255,255,255,.17);
 
         box-shadow:
-          0 10px 35px rgba(0,0,0,.55);
+          0 10px 35px rgba(0,0,0,.60);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform:
+          translate(-50%, 30px);
+
+        transition:
+          opacity .30s ease,
+          transform .30s ease,
+          visibility .30s ease;
       }
 
+
+      body.nav-visible .site-nav {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform:
+          translate(-50%, 0);
+      }
+
+
       .nav-link {
+
         flex: 1;
 
         min-width: 0;
 
         height: 54px;
 
-        padding: 0 8px;
+        padding: 0 7px;
 
         font-size: 10px;
       }
 
+
       /* ================================================
-         HERO FOTO
+         HERO MÓVIL
       ================================================= */
 
       .hero-media {
+
         min-height: 0;
+
+        width: 100%;
 
         aspect-ratio:
           4 / 5.10;
-
-        width: 100%;
       }
 
       .hero-media::before {
@@ -968,6 +1187,7 @@
       }
 
       .hero-image {
+
         object-fit: cover;
 
         object-position:
@@ -975,6 +1195,7 @@
       }
 
       .hero-media::after {
+
         background:
           linear-gradient(
             to bottom,
@@ -990,17 +1211,20 @@
       }
 
       .hero-title-inner {
+
         width:
           calc(100% - 38px);
       }
 
       .hero-kicker {
+
         font-size: 13px;
 
         margin-bottom: 18px;
       }
 
       .hero h1 {
+
         font-size: 17vw;
 
         line-height: .77;
@@ -1008,25 +1232,28 @@
         font-weight: 500;
       }
 
+
       /* ================================================
-         HERO BLOQUE NEGRO
-         AQUÍ DEJAMOS ESPACIO SEGURO
-         PARA QUE EL MENÚ NO TAPE NADA
+         HERO INFO
+
+         SIN ESPACIO ARTIFICIAL PARA MENÚ.
+         EL MENÚ ESTÁ OCULTO AQUÍ.
       ================================================= */
 
       .hero-info {
+
         padding:
-          34px
-          0
-          120px;
+          34px 0 58px;
       }
 
       .hero-info-inner {
+
         width:
           calc(100% - 38px);
       }
 
       .hero-script {
+
         font-size: 10vw;
 
         line-height: 1;
@@ -1035,14 +1262,16 @@
       }
 
       .hero-description {
+
         font-size: 13px;
 
         line-height: 1.5;
 
-        margin-top: 26px;
+        margin-top: 27px;
       }
 
       .hero-actions {
+
         display: grid;
 
         grid-template-columns: 1fr;
@@ -1056,6 +1285,7 @@
         width: 100%;
       }
 
+
       /* ================================================
          SHOWS
       ================================================= */
@@ -1063,15 +1293,17 @@
       .shows-section,
       .videos,
       .about {
+
         padding-top: 86px;
       }
 
       .shows-section {
-        padding-top: 105px;
+
         padding-bottom: 95px;
       }
 
       .shows-grid {
+
         display: flex;
 
         overflow-x: auto;
@@ -1091,6 +1323,7 @@
       }
 
       .show-card {
+
         flex:
           0 0 86%;
 
@@ -1100,6 +1333,7 @@
       }
 
       .show-card-content {
+
         min-height: 520px;
 
         padding: 24px;
@@ -1111,45 +1345,52 @@
 
       .show-type,
       .show-type.school {
+
         padding:
-          10px
-          13px !important;
+          10px 13px !important;
 
         font-size:
           11px !important;
       }
 
+
       /* ================================================
-         VIDEOS
+         VIDEO
       ================================================= */
 
       .video-layout {
+
         grid-template-columns: 1fr;
 
         gap: 38px;
       }
 
       .video-player {
+
         aspect-ratio:
           16 / 9;
       }
+
 
       /* ================================================
          ABOUT
       ================================================= */
 
       .about-grid {
+
         grid-template-columns: 1fr;
 
         gap: 55px;
       }
 
       .portrait-wrap {
+
         aspect-ratio:
           4 / 5;
       }
 
       .stats {
+
         grid-template-columns:
           repeat(3, 1fr);
 
@@ -1157,12 +1398,13 @@
       }
 
       .stat {
+
         padding:
-          32px
-          5px;
+          32px 5px;
       }
 
       .stat strong {
+
         font-size:
           clamp(
             43px,
@@ -1172,12 +1414,14 @@
       }
 
       .stat span {
+
         font-size: 10px;
 
         line-height: 1.3;
 
         letter-spacing: .07em;
       }
+
 
       /* ================================================
          ESCUELA
@@ -1192,6 +1436,7 @@
       }
 
       .school-photo img {
+
         width: 100%;
 
         height: auto;
@@ -1202,6 +1447,7 @@
       }
 
       .school-photo::after {
+
         background:
           linear-gradient(
             to bottom,
@@ -1212,6 +1458,7 @@
       }
 
       .school-content {
+
         width:
           calc(100% - 38px);
 
@@ -1219,12 +1466,11 @@
           -34px auto 0;
 
         padding:
-          42px
-          28px
-          48px;
+          42px 28px 48px;
       }
 
       .school-content .section-title {
+
         font-size: 14.5vw;
       }
 
@@ -1233,21 +1479,25 @@
       }
 
       footer {
+
         padding-bottom:
           calc(
-            120px +
+            110px +
             env(safe-area-inset-bottom)
           );
       }
+
     }
 
+
     /* ==================================================
-       TELÉFONOS MÁS PEQUEÑOS
+       TELÉFONOS PEQUEÑOS
     ================================================== */
 
     @media (max-width: 450px) {
 
       .hero-media {
+
         aspect-ratio:
           4 / 5.10;
       }
@@ -1269,30 +1519,39 @@
       }
 
       .nav-link {
+
         font-size: 10px;
 
         height: 52px;
       }
 
       .school-content {
+
         padding-left: 20px;
 
         padding-right: 20px;
       }
+
     }
 
+
     /* ==================================================
-       DESKTOP ÚNICAMENTE
+       DESKTOP
+
+       SOLO DESKTOP.
+       NO INTERFIERE CON MÓVIL.
     ================================================== */
 
     @media (min-width: 821px) {
 
       .hero-media {
+
         min-height:
           min(78vh, 820px);
       }
 
       .hero-image {
+
         width:
           min(900px, 66vw);
 
@@ -1307,7 +1566,9 @@
       }
 
       .hero-media::after {
+
         background:
+
           linear-gradient(
             to right,
             rgba(0,0,0,.76) 0%,
@@ -1315,6 +1576,7 @@
             rgba(0,0,0,.10) 66%,
             rgba(0,0,0,.08) 100%
           ),
+
           linear-gradient(
             to bottom,
             rgba(0,0,0,.02) 0%,
@@ -1328,6 +1590,7 @@
       }
 
       .hero-info-inner {
+
         display: grid;
 
         grid-template-columns:
@@ -1340,10 +1603,12 @@
 
       .hero-script,
       .hero-description {
+
         grid-column: 1;
       }
 
       .hero-actions {
+
         grid-column: 2;
 
         grid-row:
@@ -1355,10 +1620,12 @@
       }
 
       .school-photo {
+
         max-height: 680px;
       }
 
       .school-photo img {
+
         width: 100%;
 
         max-height: 680px;
@@ -1368,12 +1635,16 @@
         object-position:
           center center;
       }
+
     }
 
   </style>
+
 </head>
 
+
 <body>
+
 
   <!-- ==================================================
        MENÚ
@@ -1419,6 +1690,7 @@
   </nav>
 
 
+
   <!-- ==================================================
        HERO
   ================================================== -->
@@ -1435,6 +1707,7 @@
         src="assets/hero.jpg"
         alt="Luis Boicot haciendo stand up comedy"
       >
+
 
       <div class="hero-title-layer">
 
@@ -1456,6 +1729,7 @@
     </div>
 
 
+
     <div class="hero-info">
 
       <div class="hero-info-inner">
@@ -1464,10 +1738,15 @@
           Stand Up Comedy
         </div>
 
+
         <p class="hero-description">
+
           Comedia. Música. Historias reales.<br>
+
           Paternidad. Vida. Verdad.
+
         </p>
+
 
         <div class="hero-actions">
 
@@ -1477,6 +1756,7 @@
           >
             Próximos shows
           </a>
+
 
           <a
             class="btn btn-outline"
@@ -1492,6 +1772,7 @@
     </div>
 
   </section>
+
 
 
   <!-- ==================================================
@@ -1516,18 +1797,24 @@
         </h2>
 
         <p class="section-copy">
+
           Próximas presentaciones de Luis Boicot y producciones
-          de Escuela Clandestina. Compra tus entradas directamente
-          desde el sitio oficial.
+          de Escuela Clandestina.
+
+          Compra tus entradas directamente desde el sitio oficial.
+
         </p>
 
       </div>
 
 
+
       <div class="shows-grid">
 
 
-        <!-- EL REENCUENTRO -->
+        <!-- ==================================================
+             REENCUENTRO
+        ================================================== -->
 
         <article class="show-card school-card">
 
@@ -1540,26 +1827,42 @@
           <div class="show-card-content">
 
             <div class="show-type school">
+
               Escuela Clandestina
+
             </div>
+
 
             <div class="show-date">
+
               28 AGO 2026 · 20:00 HRS
+
             </div>
+
 
             <h3>
+
               El<br>
               Reencuentro
+
             </h3>
 
+
             <div class="show-project">
+
               Exalumnos vuelven a clases
+
             </div>
 
+
             <div class="show-location">
+
               Santiago<br>
+
               MD Pizzas · Av. Alameda 2145
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1567,7 +1870,9 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Comprar entradas
+
             </a>
 
           </div>
@@ -1575,7 +1880,10 @@
         </article>
 
 
-        <!-- LA SERENA -->
+
+        <!-- ==================================================
+             LA SERENA
+        ================================================== -->
 
         <article class="show-card">
 
@@ -1587,26 +1895,43 @@
 
           <div class="show-card-content">
 
+
             <div class="show-type">
+
               Luis Boicot · En vivo
+
             </div>
+
 
             <div class="show-date">
+
               05 SEP 2026 · 22:00 HRS
+
             </div>
+
 
             <h3>
+
               La Serena
+
             </h3>
 
+
             <div class="show-project">
+
               El Show de Luis Boicot
+
             </div>
 
+
             <div class="show-location">
+
               Inkubiertos<br>
+
               Huanhuali 790 · La Serena
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1614,7 +1939,9 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Comprar entradas
+
             </a>
 
           </div>
@@ -1622,7 +1949,10 @@
         </article>
 
 
-        <!-- GRADUACIÓN A -->
+
+        <!-- ==================================================
+             GRADUACIÓN A
+        ================================================== -->
 
         <article class="show-card school-card">
 
@@ -1634,27 +1964,44 @@
 
           <div class="show-card-content">
 
+
             <div class="show-type school">
+
               Escuela Clandestina
+
             </div>
+
 
             <div class="show-date">
+
               12 SEP 2026 · 19:00 HRS
+
             </div>
+
 
             <h3>
+
               La<br>
               Graduación
+
             </h3>
 
+
             <div class="show-project">
+
               Sección A · Nueva promoción
+
             </div>
 
+
             <div class="show-location">
+
               Happy People<br>
+
               Rancagua 395 · Providencia
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1662,7 +2009,9 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Entradas · Sección A
+
             </a>
 
           </div>
@@ -1670,7 +2019,10 @@
         </article>
 
 
-        <!-- GRADUACIÓN B -->
+
+        <!-- ==================================================
+             GRADUACIÓN B
+        ================================================== -->
 
         <article class="show-card school-card">
 
@@ -1682,27 +2034,44 @@
 
           <div class="show-card-content">
 
+
             <div class="show-type school">
+
               Escuela Clandestina
+
             </div>
+
 
             <div class="show-date">
+
               12 SEP 2026 · 22:00 HRS
+
             </div>
+
 
             <h3>
+
               La<br>
               Graduación
+
             </h3>
 
+
             <div class="show-project">
+
               Sección B · Nueva promoción
+
             </div>
 
+
             <div class="show-location">
+
               Happy People<br>
+
               Rancagua 395 · Providencia
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1710,7 +2079,9 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Entradas · Sección B
+
             </a>
 
           </div>
@@ -1718,7 +2089,10 @@
         </article>
 
 
-        <!-- ANTOFAGASTA -->
+
+        <!-- ==================================================
+             ANTOFAGASTA
+        ================================================== -->
 
         <article class="show-card">
 
@@ -1730,26 +2104,43 @@
 
           <div class="show-card-content">
 
+
             <div class="show-type">
+
               Luis Boicot · En vivo
+
             </div>
+
 
             <div class="show-date">
+
               09 OCT 2026 · 21:00 HRS
+
             </div>
+
 
             <h3>
+
               Antofagasta
+
             </h3>
 
+
             <div class="show-project">
+
               El Show de Luis Boicot
+
             </div>
 
+
             <div class="show-location">
+
               Cocotuga<br>
+
               Av. Bernardo O'Higgins 1354 · Antofagasta
+
             </div>
+
 
             <a
               class="show-buy"
@@ -1757,18 +2148,22 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Comprar entradas
+
             </a>
 
           </div>
 
         </article>
 
+
       </div>
 
     </div>
 
   </section>
+
 
 
   <!-- ==================================================
@@ -1782,23 +2177,35 @@
 
     <div class="container">
 
+
       <div class="eyebrow">
+
         En vivo
+
       </div>
 
+
       <h2 class="section-title">
+
         Videos
+
       </h2>
 
+
       <div class="video-layout">
+
 
         <div class="video-copy">
 
           <p>
+
             Stand up, comedia musical y crowd work.
+
             Mira videos, fragmentos y shows completos
             directamente desde mi canal oficial de YouTube.
+
           </p>
+
 
           <a
             class="btn btn-primary"
@@ -1806,10 +2213,13 @@
             target="_blank"
             rel="noopener noreferrer"
           >
+
             Ver más en YouTube
+
           </a>
 
         </div>
+
 
 
         <div class="video-player">
@@ -1832,11 +2242,13 @@
 
         </div>
 
+
       </div>
 
     </div>
 
   </section>
+
 
 
   <!-- ==================================================
@@ -1850,7 +2262,9 @@
 
     <div class="container">
 
+
       <div class="about-grid">
+
 
         <div class="portrait-wrap">
 
@@ -1862,78 +2276,117 @@
         </div>
 
 
+
         <div class="about-copy">
 
+
           <div class="eyebrow">
+
             Sobre mí
+
           </div>
 
+
           <h2 class="section-title">
+
             Historias<br>
+
             reales.<br>
+
             Risas<br>
+
             <span class="red">
+
               reales.
+
             </span>
+
           </h2>
 
+
           <p class="section-copy">
+
             Luis Boicot combina stand up, música,
             improvisación y experiencias reales para
             construir un show cercano, impredecible
             y profundamente personal.
+
           </p>
 
+
         </div>
+
 
       </div>
 
     </div>
 
 
+
     <div class="stats">
 
+
       <div class="stat">
+
         <strong>
+
           +20
+
         </strong>
 
         <span>
+
           Ciudades
+
         </span>
+
       </div>
 
 
       <div class="stat">
+
         <strong>
+
           3
+
         </strong>
 
         <span>
+
           Países
+
         </span>
+
       </div>
 
 
       <div class="stat">
+
         <strong>
+
           +100
+
         </strong>
 
         <span>
+
           Shows en vivo
+
         </span>
+
       </div>
+
 
     </div>
 
   </section>
 
 
+
   <!-- ==================================================
        ESCUELA CLANDESTINA
 
-       FOTO CORRECTA:
+       NOMBRE CORRECTO:
        assets/school.jpg
   ================================================== -->
 
@@ -1941,6 +2394,7 @@
     class="school"
     id="escuela"
   >
+
 
     <div class="school-photo">
 
@@ -1952,23 +2406,36 @@
     </div>
 
 
+
     <div class="container school-content">
 
+
       <div class="eyebrow">
+
         Escuela Clandestina
+
       </div>
 
+
       <h2 class="section-title">
+
         Aprende<br>
+
         a hacer<br>
+
         comedia.
+
       </h2>
 
+
       <p class="section-copy">
+
         Talleres de stand up, escritura, remates y
         desarrollo artístico para personas que quieren
         encontrar su propia voz.
+
       </p>
+
 
       <a
         class="btn btn-primary"
@@ -1976,12 +2443,16 @@
         target="_blank"
         rel="noopener noreferrer"
       >
+
         Conocer la escuela
+
       </a>
+
 
     </div>
 
   </section>
+
 
 
   <!-- ==================================================
@@ -1990,23 +2461,33 @@
 
   <footer>
 
+
     <strong>
+
       Luis Boicot
+
     </strong>
 
+
     <p>
+
       Stand Up Comedy · Sitio oficial
+
     </p>
+
 
   </footer>
 
 
+
   <!-- ==================================================
-       SCROLLSPY DEL MENÚ
+       CONTROL DEL MENÚ
   ================================================== -->
 
   <script>
+
     (() => {
+
 
       const navLinks = Array.from(
         document.querySelectorAll(
@@ -2014,25 +2495,30 @@
         )
       );
 
-      const inicio =
+
+      const hero =
         document.getElementById(
           "inicio"
         );
+
 
       const shows =
         document.getElementById(
           "shows"
         );
 
+
       const videos =
         document.getElementById(
           "videos"
         );
 
-      const sobreMi =
+
+      const about =
         document.getElementById(
           "sobre-mi"
         );
+
 
       const escuela =
         document.getElementById(
@@ -2040,79 +2526,138 @@
         );
 
 
-      function setActiveSection(id) {
 
-        navLinks.forEach(link => {
+      function isMobile() {
 
-          const active =
-            link.dataset.section === id;
-
-          link.classList.toggle(
-            "active",
-            active
-          );
-
-          if (active) {
-
-            link.setAttribute(
-              "aria-current",
-              "page"
-            );
-
-          } else {
-
-            link.removeAttribute(
-              "aria-current"
-            );
-
-          }
-
-        });
+        return window.innerWidth <= 820;
 
       }
 
 
-      function updateActiveSection() {
 
-        const focusPoint =
-          window.innerHeight * 0.56;
+      function setActiveSection(id) {
 
+        navLinks.forEach(
+          link => {
 
-        const schoolTop =
-          escuela
-            .getBoundingClientRect()
-            .top;
+            const active =
+              link.dataset.section === id;
 
 
-        const videosRect =
-          videos
-            .getBoundingClientRect();
+            link.classList.toggle(
+              "active",
+              active
+            );
+
+
+            if (active) {
+
+              link.setAttribute(
+                "aria-current",
+                "page"
+              );
+
+            }
+
+            else {
+
+              link.removeAttribute(
+                "aria-current"
+              );
+
+            }
+
+          }
+        );
+
+      }
+
+
+
+      function updateMenuVisibility() {
+
+
+        /*
+          DESKTOP:
+
+          Siempre visible.
+        */
+
+        if (!isMobile()) {
+
+          document.body.classList.add(
+            "nav-visible"
+          );
+
+          return;
+
+        }
+
+
+        /*
+          MOBILE:
+
+          El menú NO aparece sobre la portada.
+
+          Solo empieza a aparecer cuando
+          la sección SHOWS entra realmente
+          en la pantalla.
+        */
 
 
         const showsRect =
-          shows
-            .getBoundingClientRect();
+          shows.getBoundingClientRect();
+
+
+        const shouldShow =
+          showsRect.top <
+          window.innerHeight * 0.82;
+
+
+        document.body.classList.toggle(
+          "nav-visible",
+          shouldShow
+        );
+
+      }
+
+
+
+      function updateActiveSection() {
+
+
+        const focusPoint =
+          window.innerHeight * .52;
+
+
+        const schoolRect =
+          escuela.getBoundingClientRect();
+
+
+        const videoRect =
+          videos.getBoundingClientRect();
+
+
+        const showsRect =
+          shows.getBoundingClientRect();
 
 
         const aboutRect =
-          sobreMi
-            .getBoundingClientRect();
+          about.getBoundingClientRect();
+
 
 
         let active =
           "inicio";
 
 
+
         /*
           ESCUELA
-
-          Se activa desde que
-          comienza a aparecer
-          la fotografía.
         */
 
         if (
-          schoolTop <= focusPoint
+          schoolRect.top <= focusPoint
         ) {
 
           active =
@@ -2120,13 +2665,29 @@
 
         }
 
+
+        /*
+          SOBRE MÍ
+
+          Sigue considerándose INICIO.
+        */
+
+        else if (
+          aboutRect.top <= focusPoint
+        ) {
+
+          active =
+            "inicio";
+
+        }
+
+
         /*
           VIDEOS
         */
 
         else if (
-          videosRect.top <= focusPoint &&
-          videosRect.bottom > focusPoint
+          videoRect.top <= focusPoint
         ) {
 
           active =
@@ -2134,32 +2695,17 @@
 
         }
 
+
         /*
-          ENTRADAS
+          SHOWS
         */
 
         else if (
-          showsRect.top <= focusPoint &&
-          showsRect.bottom > focusPoint
+          showsRect.top <= focusPoint
         ) {
 
           active =
             "shows";
-
-        }
-
-        /*
-          SOBRE MÍ SE CONSIDERA
-          PARTE DE INICIO
-        */
-
-        else if (
-          aboutRect.top <= focusPoint &&
-          aboutRect.bottom > focusPoint
-        ) {
-
-          active =
-            "inicio";
 
         }
 
@@ -2171,31 +2717,51 @@
       }
 
 
+
+      function updatePageState() {
+
+        updateMenuVisibility();
+
+        updateActiveSection();
+
+      }
+
+
+
       let ticking =
         false;
+
 
 
       window.addEventListener(
         "scroll",
         () => {
 
+
           if (!ticking) {
+
 
             requestAnimationFrame(
               () => {
 
-                updateActiveSection();
+
+                updatePageState();
+
 
                 ticking =
                   false;
 
+
               }
             );
+
 
             ticking =
               true;
 
+
           }
+
 
         },
         {
@@ -2204,32 +2770,45 @@
       );
 
 
+
       window.addEventListener(
         "resize",
-        updateActiveSection
+        updatePageState
       );
 
 
-      navLinks.forEach(link => {
 
-        link.addEventListener(
-          "click",
-          () => {
-
-            setActiveSection(
-              link.dataset.section
-            );
-
-          }
-        );
-
-      });
+      navLinks.forEach(
+        link => {
 
 
-      updateActiveSection();
+          link.addEventListener(
+            "click",
+            () => {
+
+
+              setActiveSection(
+                link.dataset.section
+              );
+
+
+            }
+          );
+
+
+        }
+      );
+
+
+
+      updatePageState();
+
 
     })();
+
   </script>
 
+
 </body>
+
 </html>
