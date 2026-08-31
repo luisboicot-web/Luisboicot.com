@@ -31,6 +31,8 @@
       --red: #ff1635;
       --red-dark: #dd0025;
       --school: #20b9e5;
+      --school-dark: #0b7897;
+      --school-soft: rgba(32,185,229,.12);
       --container: 1180px;
     }
 
@@ -927,17 +929,24 @@
 
 
     /* ==================================================
-       ESCUELA
-       FOTO: assets/school.jpg
+       ESCUELA CLANDESTINA
     ================================================== */
 
     .school {
 
-      padding-bottom: 125px;
-
-      background: #050505;
-
       position: relative;
+
+      overflow: hidden;
+
+      padding-bottom: 130px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #050505 0%,
+          #071014 44%,
+          #050505 100%
+        );
     }
 
     .school-photo {
@@ -977,55 +986,977 @@
       background:
         linear-gradient(
           to bottom,
-          rgba(0,0,0,0) 54%,
-          rgba(5,5,5,.08) 72%,
+          rgba(0,0,0,0) 44%,
+          rgba(5,5,5,.18) 66%,
           #050505 100%
         );
     }
 
-    .school-content {
+
+    /* ==================================================
+       CABECERA ESCUELA
+    ================================================== */
+
+    .school-intro {
 
       position: relative;
 
       z-index: 2;
 
-      margin-top: -54px;
+      margin-top: -58px;
 
       padding:
-        54px 55px 58px;
+        60px 58px 62px;
 
       background:
-        rgba(5,5,5,.98);
+        rgba(5,5,5,.97);
 
       border:
-        1px solid #242424;
+        1px solid rgba(255,255,255,.10);
 
       box-shadow:
-        0 -20px 80px rgba(0,0,0,.30);
+        0 -25px 90px rgba(0,0,0,.45);
     }
 
-    .school-content::before {
+    .school-intro::before {
 
       content: "";
 
       position: absolute;
 
-      left: 0;
       top: 0;
+      left: 0;
 
-      width: 105px;
-
-      height: 4px;
+      width: 118px;
+      height: 5px;
 
       background: var(--school);
     }
 
-    .school-content .section-title {
-      max-width: 900px;
+    .school .school-eyebrow {
+
+      color: var(--school);
+
+      text-transform: uppercase;
+
+      letter-spacing: .27em;
+
+      font-weight: 900;
+
+      font-size: 14px;
+
+      line-height: 1.2;
     }
 
-    .school-content .section-copy {
-      margin-bottom: 38px;
+    .school-intro-title {
+
+      max-width: 980px;
+
+      margin-top: 20px;
+
+      font-size:
+        clamp(58px, 7vw, 106px);
+
+      line-height: .86;
+
+      letter-spacing: -.06em;
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+    }
+
+    .school-intro-title span {
+      color: var(--school);
+    }
+
+    .school-intro-copy {
+
+      max-width: 820px;
+
+      margin-top: 34px;
+
+      color: #d5d5d5;
+
+      font-size:
+        clamp(19px, 1.8vw, 23px);
+
+      line-height: 1.65;
+    }
+
+
+    /* ==================================================
+       MÉTRICAS ESCUELA
+    ================================================== */
+
+    .school-stats {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      margin-top: 50px;
+
+      border-top:
+        1px solid #252d30;
+
+      border-bottom:
+        1px solid #252d30;
+    }
+
+    .school-stat {
+
+      padding:
+        34px 25px;
+    }
+
+    .school-stat + .school-stat {
+
+      border-left:
+        1px solid #252d30;
+    }
+
+    .school-stat strong {
+
+      display: block;
+
+      color: var(--school);
+
+      font-size:
+        clamp(42px, 4.5vw, 68px);
+
+      line-height: .9;
+
+      letter-spacing: -.05em;
+
+      font-weight: 900;
+    }
+
+    .school-stat span {
+
+      display: block;
+
+      margin-top: 13px;
+
+      color: #b7bfc2;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+
+      font-size: 11px;
+
+      font-weight: 900;
+    }
+
+
+    /* ==================================================
+       TALLER PRINCIPAL
+    ================================================== */
+
+    .school-main-program {
+
+      margin-top: 90px;
+
+      padding:
+        56px;
+
+      border:
+        1px solid #28363b;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(32,185,229,.11),
+          rgba(255,255,255,.015) 45%,
+          rgba(255,255,255,.01)
+        );
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .school-main-program::before {
+
+      content: "11";
+
+      position: absolute;
+
+      right: -10px;
+      top: -44px;
+
+      color:
+        rgba(32,185,229,.055);
+
+      font-size:
+        clamp(180px, 22vw, 340px);
+
+      line-height: 1;
+
+      letter-spacing: -.09em;
+
+      font-weight: 900;
+
+      pointer-events: none;
+    }
+
+    .school-program-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      gap: 75px;
+
+      align-items: start;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .school-program-label {
+
+      color: var(--school);
+
+      text-transform: uppercase;
+
+      font-size: 13px;
+
+      letter-spacing: .18em;
+
+      font-weight: 900;
+    }
+
+    .school-program-title {
+
+      max-width: 650px;
+
+      margin-top: 18px;
+
+      font-size:
+        clamp(46px, 5vw, 76px);
+
+      line-height: .9;
+
+      letter-spacing: -.05em;
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+    }
+
+    .school-program-copy {
+
+      margin-top: 30px;
+
+      color: #d3d3d3;
+
+      font-size: 19px;
+
+      line-height: 1.7;
+
+      max-width: 650px;
+    }
+
+    .school-program-copy strong {
+      color: #fff;
+    }
+
+    .school-program-details {
+
+      display: grid;
+
+      gap: 1px;
+
+      background: #263034;
+
+      border: 1px solid #263034;
+    }
+
+    .school-detail {
+
+      padding: 24px 26px;
+
+      background: #090d0f;
+    }
+
+    .school-detail small {
+
+      display: block;
+
+      color: #7d8a8f;
+
+      text-transform: uppercase;
+
+      letter-spacing: .15em;
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      margin-bottom: 7px;
+    }
+
+    .school-detail strong {
+
+      display: block;
+
+      font-size: 18px;
+
+      line-height: 1.45;
+    }
+
+
+    /* ==================================================
+       QUÉ APRENDERÁS
+    ================================================== */
+
+    .school-learning {
+
+      margin-top: 100px;
+    }
+
+    .school-subtitle {
+
+      max-width: 820px;
+
+      margin-top: 17px;
+
+      font-size:
+        clamp(44px, 5.5vw, 80px);
+
+      line-height: .92;
+
+      letter-spacing: -.05em;
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+    }
+
+    .school-learning-intro {
+
+      max-width: 750px;
+
+      margin-top: 27px;
+
+      color: #bfc4c6;
+
+      font-size: 19px;
+
+      line-height: 1.65;
+    }
+
+    .school-skills {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 14px;
+
+      margin-top: 46px;
+    }
+
+    .school-skill {
+
+      min-height: 190px;
+
+      padding: 28px;
+
+      border:
+        1px solid #263034;
+
+      background:
+        rgba(255,255,255,.022);
+
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        background .22s ease;
+    }
+
+    .school-skill:hover {
+
+      transform: translateY(-3px);
+
+      border-color:
+        rgba(32,185,229,.65);
+
+      background:
+        rgba(32,185,229,.055);
+    }
+
+    .school-skill-number {
+
+      color: var(--school);
+
+      font-size: 12px;
+
+      letter-spacing: .15em;
+
+      font-weight: 900;
+    }
+
+    .school-skill h4 {
+
+      margin-top: 34px;
+
+      font-size: 22px;
+
+      text-transform: uppercase;
+
+      line-height: 1;
+
+      font-weight: 900;
+    }
+
+    .school-skill p {
+
+      margin-top: 13px;
+
+      color: #999fa2;
+
+      line-height: 1.55;
+
+      font-size: 15px;
+    }
+
+
+    /* ==================================================
+       ESCENARIO / GRADUACIÓN
+    ================================================== */
+
+    .school-stage {
+
+      margin-top: 105px;
+
+      padding:
+        72px 62px;
+
+      border-top:
+        1px solid rgba(32,185,229,.48);
+
+      border-bottom:
+        1px solid rgba(32,185,229,.48);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(32,185,229,.11),
+          rgba(32,185,229,.025)
+        );
+    }
+
+    .school-stage-kicker {
+
+      color: var(--school);
+
+      text-transform: uppercase;
+
+      letter-spacing: .21em;
+
+      font-size: 12px;
+
+      font-weight: 900;
+    }
+
+    .school-stage-title {
+
+      max-width: 950px;
+
+      margin-top: 20px;
+
+      font-size:
+        clamp(47px, 6vw, 88px);
+
+      line-height: .9;
+
+      letter-spacing: -.055em;
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+    }
+
+    .school-stage-title span {
+      color: var(--school);
+    }
+
+    .school-stage-copy {
+
+      max-width: 800px;
+
+      margin-top: 28px;
+
+      color: #d2d7d9;
+
+      font-size: 20px;
+
+      line-height: 1.7;
+    }
+
+
+    /* ==================================================
+       PROGRAMAS ESCUELA
+    ================================================== */
+
+    .school-programs {
+
+      margin-top: 105px;
+    }
+
+    .school-program-cards {
+
+      margin-top: 44px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .school-course {
+
+      position: relative;
+
+      min-height: 330px;
+
+      padding:
+        34px 31px;
+
+      border:
+        1px solid #293337;
+
+      background: #080b0d;
+
+      display: flex;
+
+      flex-direction: column;
+    }
+
+    .school-course-tag {
+
+      color: var(--school);
+
+      text-transform: uppercase;
+
+      letter-spacing: .17em;
+
+      font-size: 10px;
+
+      font-weight: 900;
+    }
+
+    .school-course h4 {
+
+      margin-top: 28px;
+
+      font-size:
+        clamp(27px, 2.4vw, 37px);
+
+      line-height: .96;
+
+      letter-spacing: -.035em;
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+    }
+
+    .school-course p {
+
+      color: #aab0b2;
+
+      line-height: 1.6;
+
+      margin-top: 20px;
+
+      font-size: 16px;
+    }
+
+    .school-course-line {
+
+      width: 42px;
+
+      height: 3px;
+
+      margin-top: auto;
+
+      background: var(--school);
+    }
+
+
+    /* ==================================================
+       EXPERIENCIA CONTINUA
+    ================================================== */
+
+    .school-experience {
+
+      margin-top: 105px;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 18px;
+    }
+
+    .school-experience-card {
+
+      min-height: 340px;
+
+      padding:
+        42px;
+
+      border:
+        1px solid #283236;
+
+      background:
+        rgba(255,255,255,.018);
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+    }
+
+    .school-experience-card:first-child {
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(32,185,229,.12),
+          rgba(255,255,255,.01)
+        );
+    }
+
+    .school-experience-label {
+
+      color: var(--school);
+
+      text-transform: uppercase;
+
+      letter-spacing: .15em;
+
+      font-size: 11px;
+
+      font-weight: 900;
+    }
+
+    .school-experience-card h4 {
+
+      margin-top: 17px;
+
+      font-size:
+        clamp(36px, 4vw, 58px);
+
+      line-height: .92;
+
+      letter-spacing: -.045em;
+
+      text-transform: uppercase;
+    }
+
+    .school-experience-card p {
+
+      max-width: 520px;
+
+      margin-top: 20px;
+
+      color: #b4b9bb;
+
+      line-height: 1.6;
+
+      font-size: 17px;
+    }
+
+
+    /* ==================================================
+       INSCRIPCIÓN
+    ================================================== */
+
+    .school-enrollment {
+
+      margin-top: 105px;
+
+      border:
+        1px solid rgba(32,185,229,.47);
+
+      background:
+        #071116;
+
+      overflow: hidden;
+    }
+
+    .school-enrollment-top {
+
+      display: grid;
+
+      grid-template-columns:
+        1.25fr .75fr;
+    }
+
+    .school-enrollment-copy {
+
+      padding:
+        52px;
+    }
+
+    .school-open {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding:
+        10px 13px;
+
+      color: #061015;
+
+      background: var(--school);
+
+      text-transform: uppercase;
+
+      font-size: 11px;
+
+      letter-spacing: .1em;
+
+      font-weight: 900;
+    }
+
+    .school-open::before {
+
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #061015;
+    }
+
+    .school-enrollment h3 {
+
+      margin-top: 28px;
+
+      font-size:
+        clamp(45px, 5.7vw, 82px);
+
+      line-height: .88;
+
+      letter-spacing: -.055em;
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+    }
+
+    .school-enrollment h3 span {
+      color: var(--school);
+    }
+
+    .school-enrollment-description {
+
+      max-width: 680px;
+
+      margin-top: 28px;
+
+      color: #c5cbcd;
+
+      line-height: 1.65;
+
+      font-size: 18px;
+    }
+
+    .school-price-box {
+
+      padding:
+        52px;
+
+      background:
+        var(--school);
+
+      color: #041014;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+    }
+
+    .school-price-box small {
+
+      text-transform: uppercase;
+
+      letter-spacing: .14em;
+
+      font-size: 11px;
+
+      font-weight: 900;
+    }
+
+    .school-price {
+
+      display: block;
+
+      margin-top: 11px;
+
+      font-size:
+        clamp(48px, 5vw, 72px);
+
+      line-height: .9;
+
+      letter-spacing: -.055em;
+
+      font-weight: 900;
+    }
+
+    .school-price-note {
+
+      margin-top: 20px;
+
+      max-width: 330px;
+
+      line-height: 1.5;
+
+      font-weight: 700;
+
+      font-size: 15px;
+    }
+
+    .school-enrollment-details {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      border-top:
+        1px solid rgba(255,255,255,.11);
+    }
+
+    .school-enrollment-detail {
+
+      padding:
+        27px 28px;
+    }
+
+    .school-enrollment-detail + .school-enrollment-detail {
+
+      border-left:
+        1px solid rgba(255,255,255,.11);
+    }
+
+    .school-enrollment-detail small {
+
+      display: block;
+
+      color: #718188;
+
+      text-transform: uppercase;
+
+      letter-spacing: .13em;
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      margin-bottom: 8px;
+    }
+
+    .school-enrollment-detail strong {
+
+      font-size: 15px;
+
+      line-height: 1.45;
+    }
+
+    .school-cta {
+
+      padding:
+        34px 52px 48px;
+
+      border-top:
+        1px solid rgba(255,255,255,.11);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .school-last-spots {
+
+      color: #fff;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+
+      font-size: 14px;
+
+      font-weight: 900;
+    }
+
+    .school-last-spots strong {
+      color: var(--school);
+    }
+
+    .school-btn {
+
+      min-height: 66px;
+
+      padding:
+        0 32px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: var(--school);
+
+      color: #031014;
+
+      border:
+        1px solid var(--school);
+
+      text-transform: uppercase;
+
+      letter-spacing: .025em;
+
+      font-size: 14px;
+
+      font-weight: 900;
+
+      transition:
+        transform .2s ease,
+        background .2s ease;
+    }
+
+    .school-btn:hover {
+
+      transform: translateY(-2px);
+
+      background: #58cdf0;
     }
 
 
@@ -1092,8 +2023,6 @@
 
       /* ================================================
          MENÚ MÓVIL
-
-         OCULTO EN PORTADA
       ================================================= */
 
       .site-nav {
@@ -1140,7 +2069,6 @@
           visibility .30s ease;
       }
 
-
       body.nav-visible .site-nav {
 
         opacity: 1;
@@ -1152,7 +2080,6 @@
         transform:
           translate(-50%, 0);
       }
-
 
       .nav-link {
 
@@ -1231,14 +2158,6 @@
 
         font-weight: 500;
       }
-
-
-      /* ================================================
-         HERO INFO
-
-         SIN ESPACIO ARTIFICIAL PARA MENÚ.
-         EL MENÚ ESTÁ OCULTO AQUÍ.
-      ================================================= */
 
       .hero-info {
 
@@ -1424,11 +2343,14 @@
 
 
       /* ================================================
-         ESCUELA
+         ESCUELA MÓVIL
       ================================================= */
 
       .school {
+
         padding-top: 0;
+
+        padding-bottom: 95px;
       }
 
       .school-photo {
@@ -1451,13 +2373,13 @@
         background:
           linear-gradient(
             to bottom,
-            rgba(0,0,0,0) 62%,
-            rgba(5,5,5,.14) 78%,
+            rgba(0,0,0,0) 58%,
+            rgba(5,5,5,.14) 75%,
             #050505 100%
           );
       }
 
-      .school-content {
+      .school-intro {
 
         width:
           calc(100% - 38px);
@@ -1466,16 +2388,295 @@
           -34px auto 0;
 
         padding:
-          42px 28px 48px;
+          42px 24px 38px;
       }
 
-      .school-content .section-title {
+      .school-intro-title {
 
-        font-size: 14.5vw;
+        font-size: 13.6vw;
+
+        line-height: .89;
       }
 
-      .section-copy {
+      .school-intro-copy {
+
+        margin-top: 27px;
+
         font-size: 18px;
+
+        line-height: 1.6;
+      }
+
+      .school-stats {
+
+        grid-template-columns:
+          repeat(3, 1fr);
+
+        margin-top: 37px;
+      }
+
+      .school-stat {
+
+        padding:
+          25px 8px;
+      }
+
+      .school-stat strong {
+
+        font-size:
+          clamp(38px, 11vw, 55px);
+      }
+
+      .school-stat span {
+
+        font-size: 8px;
+
+        letter-spacing: .05em;
+
+        line-height: 1.35;
+      }
+
+      .school-main-program {
+
+        width:
+          calc(100% - 38px);
+
+        margin:
+          65px auto 0;
+
+        padding:
+          34px 23px;
+      }
+
+      .school-main-program::before {
+
+        top: -20px;
+
+        font-size: 185px;
+      }
+
+      .school-program-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+      }
+
+      .school-program-title {
+
+        font-size: 12vw;
+      }
+
+      .school-program-copy {
+
+        font-size: 17px;
+      }
+
+      .school-detail {
+
+        padding:
+          20px;
+      }
+
+      .school-learning {
+
+        width:
+          calc(100% - 38px);
+
+        margin:
+          72px auto 0;
+      }
+
+      .school-subtitle {
+
+        font-size: 13vw;
+      }
+
+      .school-learning-intro {
+
+        font-size: 17px;
+      }
+
+      .school-skills {
+
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 10px;
+
+        margin-top: 35px;
+      }
+
+      .school-skill {
+
+        min-height: 180px;
+
+        padding:
+          21px 18px;
+      }
+
+      .school-skill h4 {
+
+        margin-top: 27px;
+
+        font-size: 18px;
+      }
+
+      .school-skill p {
+
+        font-size: 13px;
+      }
+
+      .school-stage {
+
+        width:
+          calc(100% - 38px);
+
+        margin:
+          72px auto 0;
+
+        padding:
+          44px 24px;
+      }
+
+      .school-stage-title {
+
+        font-size: 12.5vw;
+      }
+
+      .school-stage-copy {
+
+        font-size: 17px;
+      }
+
+      .school-programs {
+
+        width:
+          calc(100% - 38px);
+
+        margin:
+          72px auto 0;
+      }
+
+      .school-program-cards {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+      }
+
+      .school-course {
+
+        min-height: 260px;
+
+        padding:
+          29px 24px;
+      }
+
+      .school-experience {
+
+        width:
+          calc(100% - 38px);
+
+        margin:
+          72px auto 0;
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+      }
+
+      .school-experience-card {
+
+        min-height: 290px;
+
+        padding:
+          31px 25px;
+      }
+
+      .school-enrollment {
+
+        width:
+          calc(100% - 38px);
+
+        margin:
+          72px auto 0;
+      }
+
+      .school-enrollment-top {
+
+        grid-template-columns: 1fr;
+      }
+
+      .school-enrollment-copy {
+
+        padding:
+          34px 24px 40px;
+      }
+
+      .school-enrollment h3 {
+
+        font-size: 12.5vw;
+      }
+
+      .school-enrollment-description {
+
+        font-size: 17px;
+      }
+
+      .school-price-box {
+
+        padding:
+          34px 24px;
+      }
+
+      .school-enrollment-details {
+
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .school-enrollment-detail {
+
+        padding:
+          22px 19px;
+
+        border-top:
+          1px solid rgba(255,255,255,.11);
+      }
+
+      .school-enrollment-detail + .school-enrollment-detail {
+
+        border-left:
+          0;
+      }
+
+      .school-enrollment-detail:nth-child(even) {
+
+        border-left:
+          1px solid rgba(255,255,255,.11);
+      }
+
+      .school-cta {
+
+        padding:
+          28px 24px 31px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+      .school-last-spots {
+
+        text-align: center;
+
+        line-height: 1.5;
+      }
+
+      .school-btn {
+
+        width: 100%;
       }
 
       footer {
@@ -1525,11 +2726,25 @@
         height: 52px;
       }
 
-      .school-content {
+      .school-skills {
 
-        padding-left: 20px;
+        grid-template-columns: 1fr;
+      }
 
-        padding-right: 20px;
+      .school-skill {
+
+        min-height: 155px;
+      }
+
+      .school-enrollment-details {
+
+        grid-template-columns: 1fr;
+      }
+
+      .school-enrollment-detail,
+      .school-enrollment-detail:nth-child(even) {
+
+        border-left: 0;
       }
 
     }
@@ -1537,9 +2752,6 @@
 
     /* ==================================================
        DESKTOP
-
-       SOLO DESKTOP.
-       NO INTERFIERE CON MÓVIL.
     ================================================== */
 
     @media (min-width: 821px) {
@@ -1708,7 +2920,6 @@
         alt="Luis Boicot haciendo stand up comedy"
       >
 
-
       <div class="hero-title-layer">
 
         <div class="hero-title-inner">
@@ -1729,7 +2940,6 @@
     </div>
 
 
-
     <div class="hero-info">
 
       <div class="hero-info-inner">
@@ -1738,15 +2948,10 @@
           Stand Up Comedy
         </div>
 
-
         <p class="hero-description">
-
           Comedia. Música. Historias reales.<br>
-
           Paternidad. Vida. Verdad.
-
         </p>
-
 
         <div class="hero-actions">
 
@@ -1756,7 +2961,6 @@
           >
             Próximos shows
           </a>
-
 
           <a
             class="btn btn-outline"
@@ -1812,9 +3016,7 @@
       <div class="shows-grid">
 
 
-        <!-- ==================================================
-             REENCUENTRO
-        ================================================== -->
+        <!-- REENCUENTRO -->
 
         <article class="show-card school-card">
 
@@ -1827,42 +3029,26 @@
           <div class="show-card-content">
 
             <div class="show-type school">
-
               Escuela Clandestina
-
             </div>
-
 
             <div class="show-date">
-
               28 AGO 2026 · 20:00 HRS
-
             </div>
-
 
             <h3>
-
               El<br>
               Reencuentro
-
             </h3>
 
-
             <div class="show-project">
-
               Exalumnos vuelven a clases
-
             </div>
-
 
             <div class="show-location">
-
               Santiago<br>
-
               MD Pizzas · Av. Alameda 2145
-
             </div>
-
 
             <a
               class="show-buy"
@@ -1870,9 +3056,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-
               Comprar entradas
-
             </a>
 
           </div>
@@ -1881,9 +3065,7 @@
 
 
 
-        <!-- ==================================================
-             LA SERENA
-        ================================================== -->
+        <!-- LA SERENA -->
 
         <article class="show-card">
 
@@ -1895,43 +3077,26 @@
 
           <div class="show-card-content">
 
-
             <div class="show-type">
-
               Luis Boicot · En vivo
-
             </div>
-
 
             <div class="show-date">
-
               05 SEP 2026 · 22:00 HRS
-
             </div>
-
 
             <h3>
-
               La Serena
-
             </h3>
 
-
             <div class="show-project">
-
               El Show de Luis Boicot
-
             </div>
-
 
             <div class="show-location">
-
               Inkubiertos<br>
-
               Huanhuali 790 · La Serena
-
             </div>
-
 
             <a
               class="show-buy"
@@ -1939,9 +3104,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-
               Comprar entradas
-
             </a>
 
           </div>
@@ -1950,9 +3113,7 @@
 
 
 
-        <!-- ==================================================
-             GRADUACIÓN A
-        ================================================== -->
+        <!-- GRADUACIÓN A -->
 
         <article class="show-card school-card">
 
@@ -1964,44 +3125,27 @@
 
           <div class="show-card-content">
 
-
             <div class="show-type school">
-
               Escuela Clandestina
-
             </div>
-
 
             <div class="show-date">
-
               12 SEP 2026 · 19:00 HRS
-
             </div>
-
 
             <h3>
-
               La<br>
               Graduación
-
             </h3>
 
-
             <div class="show-project">
-
               Sección A · Nueva promoción
-
             </div>
-
 
             <div class="show-location">
-
               Happy People<br>
-
               Rancagua 395 · Providencia
-
             </div>
-
 
             <a
               class="show-buy"
@@ -2009,9 +3153,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-
               Entradas · Sección A
-
             </a>
 
           </div>
@@ -2020,9 +3162,7 @@
 
 
 
-        <!-- ==================================================
-             GRADUACIÓN B
-        ================================================== -->
+        <!-- GRADUACIÓN B -->
 
         <article class="show-card school-card">
 
@@ -2034,44 +3174,27 @@
 
           <div class="show-card-content">
 
-
             <div class="show-type school">
-
               Escuela Clandestina
-
             </div>
-
 
             <div class="show-date">
-
               12 SEP 2026 · 22:00 HRS
-
             </div>
-
 
             <h3>
-
               La<br>
-              Graduación
-
+              Graduaduación
             </h3>
 
-
             <div class="show-project">
-
               Sección B · Nueva promoción
-
             </div>
-
 
             <div class="show-location">
-
               Happy People<br>
-
               Rancagua 395 · Providencia
-
             </div>
-
 
             <a
               class="show-buy"
@@ -2079,9 +3202,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-
               Entradas · Sección B
-
             </a>
 
           </div>
@@ -2090,9 +3211,7 @@
 
 
 
-        <!-- ==================================================
-             ANTOFAGASTA
-        ================================================== -->
+        <!-- ANTOFAGASTA -->
 
         <article class="show-card">
 
@@ -2104,43 +3223,26 @@
 
           <div class="show-card-content">
 
-
             <div class="show-type">
-
               Luis Boicot · En vivo
-
             </div>
-
 
             <div class="show-date">
-
               09 OCT 2026 · 21:00 HRS
-
             </div>
-
 
             <h3>
-
               Antofagasta
-
             </h3>
 
-
             <div class="show-project">
-
               El Show de Luis Boicot
-
             </div>
-
 
             <div class="show-location">
-
               Cocotuga<br>
-
               Av. Bernardo O'Higgins 1354 · Antofagasta
-
             </div>
-
 
             <a
               class="show-buy"
@@ -2148,9 +3250,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-
               Comprar entradas
-
             </a>
 
           </div>
@@ -2159,9 +3259,7 @@
 
 
 
-        <!-- ==================================================
-             CONCEPCIÓN
-        ================================================== -->
+        <!-- CONCEPCIÓN -->
 
         <article class="show-card">
 
@@ -2173,43 +3271,26 @@
 
           <div class="show-card-content">
 
-
             <div class="show-type">
-
               Luis Boicot · En vivo
-
             </div>
-
 
             <div class="show-date">
-
               24 OCT 2026 · 21:00 HRS
-
             </div>
-
 
             <h3>
-
               Concepción
-
             </h3>
 
-
             <div class="show-project">
-
               El Show de Luis Boicot
-
             </div>
-
 
             <div class="show-location">
-
               Fusión Restobar<br>
-
               Av. Ramón Carrasco 385. Lomas de San Andrés · Concepción
-
             </div>
-
 
             <a
               class="show-buy"
@@ -2217,9 +3298,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-
               Comprar entradas
-
             </a>
 
           </div>
@@ -2246,23 +3325,15 @@
 
     <div class="container">
 
-
       <div class="eyebrow">
-
         En vivo
-
       </div>
 
-
       <h2 class="section-title">
-
         Videos
-
       </h2>
 
-
       <div class="video-layout">
-
 
         <div class="video-copy">
 
@@ -2275,20 +3346,16 @@
 
           </p>
 
-
           <a
             class="btn btn-primary"
             href="https://www.youtube.com/@luisboicot"
             target="_blank"
             rel="noopener noreferrer"
           >
-
             Ver más en YouTube
-
           </a>
 
         </div>
-
 
 
         <div class="video-player">
@@ -2311,7 +3378,6 @@
 
         </div>
 
-
       </div>
 
     </div>
@@ -2331,9 +3397,7 @@
 
     <div class="container">
 
-
       <div class="about-grid">
-
 
         <div class="portrait-wrap">
 
@@ -2345,33 +3409,23 @@
         </div>
 
 
-
         <div class="about-copy">
 
-
           <div class="eyebrow">
-
             Sobre mí
-
           </div>
-
 
           <h2 class="section-title">
 
             Historias<br>
-
             reales.<br>
-
             Risas<br>
 
             <span class="red">
-
               reales.
-
             </span>
 
           </h2>
-
 
           <p class="section-copy">
 
@@ -2382,31 +3436,23 @@
 
           </p>
 
-
         </div>
-
 
       </div>
 
     </div>
 
 
-
     <div class="stats">
 
-
       <div class="stat">
 
         <strong>
-
           +20
-
         </strong>
 
         <span>
-
           Ciudades
-
         </span>
 
       </div>
@@ -2415,15 +3461,11 @@
       <div class="stat">
 
         <strong>
-
           4
-
         </strong>
 
         <span>
-
           Países
-
         </span>
 
       </div>
@@ -2432,19 +3474,14 @@
       <div class="stat">
 
         <strong>
-
           +100
-
         </strong>
 
         <span>
-
           Shows en vivo
-
         </span>
 
       </div>
-
 
     </div>
 
@@ -2454,9 +3491,6 @@
 
   <!-- ==================================================
        ESCUELA CLANDESTINA
-
-       NOMBRE CORRECTO:
-       assets/school.jpg
   ================================================== -->
 
   <section
@@ -2464,6 +3498,8 @@
     id="escuela"
   >
 
+
+    <!-- FOTO PRINCIPAL -->
 
     <div class="school-photo">
 
@@ -2476,49 +3512,696 @@
 
 
 
-    <div class="container school-content">
+    <!-- PRESENTACIÓN -->
 
+    <div class="container school-intro">
 
-      <div class="eyebrow">
-
+      <div class="school-eyebrow">
         Escuela Clandestina
-
       </div>
 
 
-      <h2 class="section-title">
+      <h2 class="school-intro-title">
 
-        Aprende<br>
+        Aprende comedia.<br>
 
-        a hacer<br>
+        Haz comedia.<br>
 
-        comedia.
+        <span>
+          Súbete al escenario.
+        </span>
 
       </h2>
 
 
-      <p class="section-copy">
+      <p class="school-intro-copy">
 
-        Talleres de stand up, escritura, remates y
-        desarrollo artístico para personas que quieren
-        encontrar su propia voz.
+        Escuela Clandestina es una academia de formación artística
+        para personas que quieren comenzar en la comedia o
+        perfeccionar su técnica.
+
+        Trabajamos estructura, creación, comunicación y escenario
+        para que puedas desarrollar una voz propia y convertir tus
+        ideas en material que puedas presentar frente a público.
 
       </p>
 
 
-      <a
-        class="btn btn-primary"
-        href="https://www.instagram.com/escuelaclandestina/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
 
-        Conocer la escuela
+      <div class="school-stats">
 
-      </a>
+        <div class="school-stat">
+
+          <strong>
+            11
+          </strong>
+
+          <span>
+            Ediciones
+          </span>
+
+        </div>
+
+
+        <div class="school-stat">
+
+          <strong>
+            +60
+          </strong>
+
+          <span>
+            Egresados
+          </span>
+
+        </div>
+
+
+        <div class="school-stat">
+
+          <strong>
+            12
+          </strong>
+
+          <span>
+            Semanas de formación
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- TALLER PRINCIPAL -->
+
+    <div class="container school-main-program">
+
+      <div class="school-program-grid">
+
+
+        <div>
+
+          <div class="school-program-label">
+            Programa principal
+          </div>
+
+
+          <h3 class="school-program-title">
+
+            Taller de Comedia
+            + Stand Up Comedy
+
+          </h3>
+
+
+          <p class="school-program-copy">
+
+            Un programa completo de <strong>12 semanas</strong>,
+            diseñado tanto para personas sin experiencia como para
+            quienes ya hacen comedia y quieren perfeccionar su técnica.
+
+            El trabajo hace especial énfasis en construir
+            <strong>bases sólidas</strong> para entender cómo funciona
+            la comedia, aprender a crear de manera consciente y llevar
+            progresivamente el material hasta el escenario.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="school-program-details">
+
+
+          <div class="school-detail">
+
+            <small>
+              Duración
+            </small>
+
+            <strong>
+              12 semanas · Una clase por semana
+            </strong>
+
+          </div>
+
+
+          <div class="school-detail">
+
+            <small>
+              Nivel
+            </small>
+
+            <strong>
+              Con o sin experiencia previa
+            </strong>
+
+          </div>
+
+
+          <div class="school-detail">
+
+            <small>
+              Modalidad
+            </small>
+
+            <strong>
+              Presencial · Trabajo constante sobre escenario
+            </strong>
+
+          </div>
+
+
+          <div class="school-detail">
+
+            <small>
+              Objetivo
+            </small>
+
+            <strong>
+              Construir una base sólida y avanzar hasta desarrollar una rutina propia
+            </strong>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- QUÉ APRENDERÁS -->
+
+    <div class="container school-learning">
+
+
+      <div class="school-eyebrow">
+        Formación integral
+      </div>
+
+
+      <h3 class="school-subtitle">
+
+        Mucho más que
+        escribir chistes.
+
+      </h3>
+
+
+      <p class="school-learning-intro">
+
+        La formación combina herramientas creativas y escénicas.
+        El salón funciona con formato de bar y cuenta con escenario,
+        permitiendo practicar de manera constante durante todo el proceso.
+
+      </p>
+
+
+
+      <div class="school-skills">
+
+
+        <article class="school-skill">
+
+          <div class="school-skill-number">
+            01
+          </div>
+
+          <h4>
+            Comedia
+          </h4>
+
+          <p>
+            Entender estructuras, ideas, premisas y mecanismos que generan comedia.
+          </p>
+
+        </article>
+
+
+
+        <article class="school-skill">
+
+          <div class="school-skill-number">
+            02
+          </div>
+
+          <h4>
+            Stand Up
+          </h4>
+
+          <p>
+            Crear material propio y transformarlo progresivamente en una rutina.
+          </p>
+
+        </article>
+
+
+
+        <article class="school-skill">
+
+          <div class="school-skill-number">
+            03
+          </div>
+
+          <h4>
+            Improvisación
+          </h4>
+
+          <p>
+            Desarrollar reacción, escucha, espontaneidad y capacidad de adaptación.
+          </p>
+
+        </article>
+
+
+
+        <article class="school-skill">
+
+          <div class="school-skill-number">
+            04
+          </div>
+
+          <h4>
+            Oratoria
+          </h4>
+
+          <p>
+            Aprender a comunicar ideas con mayor claridad, intención y presencia.
+          </p>
+
+        </article>
+
+
+
+        <article class="school-skill">
+
+          <div class="school-skill-number">
+            05
+          </div>
+
+          <h4>
+            Escenario
+          </h4>
+
+          <p>
+            Trabajar miedo escénico, expresión corporal y puesta en escena.
+          </p>
+
+        </article>
+
+
+
+        <article class="school-skill">
+
+          <div class="school-skill-number">
+            06
+          </div>
+
+          <h4>
+            Producción
+          </h4>
+
+          <p>
+            Conocer herramientas para presentar y desarrollar el trabajo artístico a un nivel profesional.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- LA GRADUACIÓN -->
+
+    <div class="container school-stage">
+
+
+      <div class="school-stage-kicker">
+        El objetivo final
+      </div>
+
+
+      <h3 class="school-stage-title">
+
+        No terminas
+        con una clase.
+
+        <span>
+          Terminas con un show.
+        </span>
+
+      </h3>
+
+
+      <p class="school-stage-copy">
+
+        Cada edición culmina con <strong>La Graduación</strong>:
+        un espectáculo frente a público en vivo donde cada alumno
+        presenta la rutina que desarrolló durante el taller.
+
+        Todo el proceso de formación está pensado para que el escenario
+        no sea solamente el final, sino parte del aprendizaje desde el comienzo.
+
+      </p>
+
+    </div>
+
+
+
+    <!-- LOS PROGRAMAS -->
+
+    <div class="container school-programs">
+
+
+      <div class="school-eyebrow">
+        Academia de formación artística
+      </div>
+
+
+      <h3 class="school-subtitle">
+
+        Tres espacios.
+        Un mismo objetivo.
+
+      </h3>
+
+
+
+      <div class="school-program-cards">
+
+
+        <article class="school-course">
+
+          <div class="school-course-tag">
+            Formación integral
+          </div>
+
+          <h4>
+            Taller de Comedia
+            + Stand Up Comedy
+          </h4>
+
+          <p>
+
+            Formación completa en comedia, escritura,
+            improvisación, oratoria y escenario.
+
+            Ideal tanto para comenzar como para perfeccionar la técnica.
+
+          </p>
+
+          <div class="school-course-line"></div>
+
+        </article>
+
+
+
+        <article class="school-course">
+
+          <div class="school-course-tag">
+            Especialización
+          </div>
+
+          <h4>
+            Laboratorio
+            de Remates
+          </h4>
+
+          <p>
+
+            Un espacio de entrenamiento enfocado en trabajar
+            material, profundizar ideas y encontrar remates
+            más efectivos.
+
+          </p>
+
+          <div class="school-course-line"></div>
+
+        </article>
+
+
+
+        <article class="school-course">
+
+          <div class="school-course-tag">
+            Desarrollo artístico
+          </div>
+
+          <h4>
+            Conoce tu valor
+            como artista
+          </h4>
+
+          <p>
+
+            Un taller dedicado a comprender el valor profesional
+            del trabajo artístico y desarrollar herramientas para
+            proyectarlo de manera más consciente.
+
+          </p>
+
+          <div class="school-course-line"></div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- CONTINUIDAD -->
+
+    <div class="container school-experience">
+
+
+      <article class="school-experience-card">
+
+        <div class="school-experience-label">
+          Cada edición
+        </div>
+
+
+        <h4>
+          La Graduación
+        </h4>
+
+
+        <p>
+
+          El cierre del Taller de Comedia.
+
+          Los alumnos presentan su propia rutina frente
+          a público en vivo y convierten doce semanas
+          de formación en una experiencia real de escenario.
+
+        </p>
+
+      </article>
+
+
+
+      <article class="school-experience-card">
+
+        <div class="school-experience-label">
+          Todos los meses
+        </div>
+
+
+        <h4>
+          El Reencuentro
+        </h4>
+
+
+        <p>
+
+          Graduarse no significa desaparecer.
+
+          El Reencuentro es el show mensual donde egresados
+          de diferentes ediciones vuelven a encontrarse
+          y a presentar comedia en vivo.
+
+        </p>
+
+      </article>
 
 
     </div>
+
+
+
+    <!-- INSCRIPCIÓN 11VA EDICIÓN -->
+
+    <div class="container school-enrollment">
+
+
+      <div class="school-enrollment-top">
+
+
+        <div class="school-enrollment-copy">
+
+
+          <div class="school-open">
+            Inscripciones abiertas
+          </div>
+
+
+          <h3>
+
+            11.ª edición
+
+            <span>
+              Taller de Comedia
+            </span>
+
+          </h3>
+
+
+          <p class="school-enrollment-description">
+
+            La nueva edición comienza la semana del
+            <strong>22 de septiembre de 2026</strong>.
+
+            Elige el horario que más te acomode y trabaja
+            durante doce semanas en un espacio preparado
+            específicamente para entrenar comedia y escenario.
+
+          </p>
+
+
+        </div>
+
+
+
+        <div class="school-price-box">
+
+
+          <small>
+            Valor total
+          </small>
+
+
+          <strong class="school-price">
+            $300.000
+          </strong>
+
+
+          <p class="school-price-note">
+
+            Reserva tu cupo con <strong>$50.000</strong>.
+
+            Los $250.000 restantes pueden pagarse durante
+            las 12 semanas de manera semanal, quincenal
+            o mensual.
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="school-enrollment-details">
+
+
+        <div class="school-enrollment-detail">
+
+          <small>
+            Horario 1
+          </small>
+
+          <strong>
+            Martes<br>
+            19:00 a 21:00
+          </strong>
+
+        </div>
+
+
+        <div class="school-enrollment-detail">
+
+          <small>
+            Horario 2
+          </small>
+
+          <strong>
+            Domingos<br>
+            12:00 a 14:00
+          </strong>
+
+        </div>
+
+
+        <div class="school-enrollment-detail">
+
+          <small>
+            Ubicación
+          </small>
+
+          <strong>
+            Alameda 2145<br>
+            Cerca de Metro Los Héroes
+          </strong>
+
+        </div>
+
+
+        <div class="school-enrollment-detail">
+
+          <small>
+            Espacio
+          </small>
+
+          <strong>
+            Salón con escenario<br>
+            Estacionamiento disponible
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="school-cta">
+
+
+        <div class="school-last-spots">
+
+          Cupos limitados ·
+          <strong>quedan 3</strong>
+
+        </div>
+
+
+        <a
+          class="school-btn"
+          href="https://www.instagram.com/escuelaclandestina/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Quiero reservar mi cupo
+        </a>
+
+
+      </div>
+
+    </div>
+
 
   </section>
 
@@ -2530,20 +4213,13 @@
 
   <footer>
 
-
     <strong>
-
       Luis Boicot
-
     </strong>
 
-
     <p>
-
       Stand Up Comedy · Sitio oficial
-
     </p>
-
 
   </footer>
 
@@ -2646,12 +4322,6 @@
       function updateMenuVisibility() {
 
 
-        /*
-          DESKTOP:
-
-          Siempre visible.
-        */
-
         if (!isMobile()) {
 
           document.body.classList.add(
@@ -2661,17 +4331,6 @@
           return;
 
         }
-
-
-        /*
-          MOBILE:
-
-          El menú NO aparece sobre la portada.
-
-          Solo empieza a aparecer cuando
-          la sección SHOWS entra realmente
-          en la pantalla.
-        */
 
 
         const showsRect =
@@ -2720,11 +4379,6 @@
           "inicio";
 
 
-
-        /*
-          ESCUELA
-        */
-
         if (
           schoolRect.top <= focusPoint
         ) {
@@ -2734,12 +4388,6 @@
 
         }
 
-
-        /*
-          SOBRE MÍ
-
-          Sigue considerándose INICIO.
-        */
 
         else if (
           aboutRect.top <= focusPoint
@@ -2751,10 +4399,6 @@
         }
 
 
-        /*
-          VIDEOS
-        */
-
         else if (
           videoRect.top <= focusPoint
         ) {
@@ -2764,10 +4408,6 @@
 
         }
 
-
-        /*
-          SHOWS
-        */
 
         else if (
           showsRect.top <= focusPoint
