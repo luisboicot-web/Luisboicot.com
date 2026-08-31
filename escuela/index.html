@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Escuela Clandestina | Comedia y Stand Up</title>
+
+  <meta
+    name="description"
+    content="Escuela Clandestina es una academia de formación artística en Santiago. Taller de Comedia y Stand Up Comedy, Laboratorio de Remates y formación para artistas."
+  >
+
+  <meta name="theme-color" content="#071014">
+
+  <style>
+    :root {
+      --bg: #050505;
+      --soft: #091014;
+      --panel: #0b1114;
+      --white: #f5f5f5;
+      --gray: #b8c0c3;
+      --muted: #808b90;
+      --line: #26343a;
+      --cyan: #20b9e5;
+      --cyan-light: #62d3f3;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    section {
+      scroll-margin-top: 100px;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 64px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .title {
+      margin-top: 18px;
+      font-size: clamp(54px, 7.4vw, 106px);
+      line-height: .88;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .copy {
+      margin-top: 28px;
+      max-width: 820px;
+      color: var(--gray);
+      font-size: clamp(18px, 1.75vw, 22px);
+      line-height: 1.65;
+    }
+
+    .button {
+      min-height: 66px;
+      padding: 0 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--cyan);
+      background: var(--cyan);
+      color: #031014;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--cyan-light);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: #fff;
+      border-color: #435158;
+    }
+
+    /* NAV */
+    .school-nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      width: min(920px, calc(100% - 38px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 5px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 999px;
+      background: rgba(4,9,11,.90);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.36);
+    }
+
+    .brand-link,
+    .nav-item {
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .06em;
+    }
+
+    .brand-link {
+      padding: 0 18px;
+      color: var(--cyan);
+      white-space: nowrap;
+    }
+
+    .school-nav-links {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .nav-item {
+      padding: 0 17px;
+      color: #b9c0c3;
+    }
+
+    .nav-item:hover {
+      color: #fff;
+    }
+
+    .nav-item.primary {
+      background: var(--cyan);
+      color: #031014;
+    }
+
+    /* HERO */
+    .school-hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      background: #000;
+      isolation: isolate;
+    }
+
+    .school-hero-image {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      z-index: -3;
+    }
+
+    .school-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(to right, rgba(0,0,0,.80) 0%, rgba(0,0,0,.48) 42%, rgba(0,0,0,.18) 70%, rgba(0,0,0,.10) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,.08) 0%, rgba(0,0,0,.14) 48%, #050505 100%);
+    }
+
+    .school-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(to top, rgba(32,185,229,.11), transparent 42%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      padding: 160px 0 76px;
+      width: 100%;
+    }
+
+    .hero-content .title {
+      max-width: 960px;
+    }
+
+    .hero-content .title span {
+      color: var(--cyan);
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin-top: 28px;
+      color: #d3d7d9;
+      font-size: clamp(18px, 1.65vw, 22px);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    /* STATS */
+    .proof {
+      background: #071014;
+      border-top: 1px solid #203138;
+      border-bottom: 1px solid #203138;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .proof-item {
+      padding: 44px 28px;
+    }
+
+    .proof-item + .proof-item {
+      border-left: 1px solid #203138;
+    }
+
+    .proof-item strong {
+      display: block;
+      color: var(--cyan);
+      font-size: clamp(48px, 5vw, 76px);
+      line-height: .88;
+      letter-spacing: -.05em;
+    }
+
+    .proof-item span {
+      display: block;
+      margin-top: 13px;
+      color: #b6c0c4;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    /* PROGRAMAS */
+    .programs {
+      padding: 120px 0;
+      background: #050505;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 50px;
+    }
+
+    .program-card {
+      min-height: 340px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .program-label {
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: .16em;
+      font-weight: 900;
+    }
+
+    .program-card h3 {
+      margin-top: 28px;
+      font-size: clamp(28px, 2.5vw, 38px);
+      line-height: .96;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+    }
+
+    .program-card p {
+      margin-top: 20px;
+      color: #aeb7bb;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    .program-line {
+      margin-top: auto;
+      width: 44px;
+      height: 3px;
+      background: var(--cyan);
+    }
+
+    /* TALLER */
+    .workshop {
+      padding: 120px 0;
+      background: linear-gradient(to bottom, #081116, #050505);
+    }
+
+    .workshop-grid {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .workshop-copy p {
+      color: var(--gray);
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .workshop-copy p + p {
+      margin-top: 22px;
+    }
+
+    .details {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .detail {
+      padding: 23px 25px;
+      background: #080d10;
+    }
+
+    .detail small {
+      display: block;
+      margin-bottom: 7px;
+      color: #718087;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .detail strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .skills {
+      margin-top: 72px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .skill {
+      min-height: 170px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.018);
+    }
+
+    .skill strong {
+      color: var(--cyan);
+      font-size: 11px;
+      letter-spacing: .14em;
+    }
+
+    .skill h4 {
+      margin-top: 28px;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    .skill p {
+      margin-top: 11px;
+      color: #929da2;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ESCENARIO */
+    .stage {
+      padding: 120px 0;
+      background: #050505;
+    }
+
+    .stage-box {
+      padding: 66px 58px;
+      border-top: 1px solid rgba(32,185,229,.45);
+      border-bottom: 1px solid rgba(32,185,229,.45);
+      background: linear-gradient(100deg, rgba(32,185,229,.12), rgba(32,185,229,.02));
+    }
+
+    .stage-box .title {
+      max-width: 940px;
+      font-size: clamp(48px, 6vw, 88px);
+    }
+
+    .stage-box .title span {
+      color: var(--cyan);
+    }
+
+    .stage-copy {
+      margin-top: 28px;
+      max-width: 840px;
+      color: var(--gray);
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .stage-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .stage-card {
+      min-height: 300px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      background: #090e11;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .stage-card small {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 900;
+      font-size: 10px;
+    }
+
+    .stage-card h3 {
+      margin-top: 14px;
+      font-size: clamp(36px, 4vw, 58px);
+      line-height: .92;
+      text-transform: uppercase;
+      letter-spacing: -.045em;
+    }
+
+    .stage-card p {
+      margin-top: 18px;
+      color: #aeb7bb;
+      line-height: 1.6;
+    }
+
+    /* INSCRIPCIÓN */
+    .enrollment {
+      padding: 120px 0 130px;
+      background: #071014;
+    }
+
+    .enrollment-box {
+      border: 1px solid rgba(32,185,229,.45);
+      background: #091318;
+      overflow: hidden;
+    }
+
+    .enrollment-top {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+    }
+
+    .enrollment-copy {
+      padding: 52px;
+    }
+
+    .open-tag {
+      display: inline-flex;
+      padding: 10px 13px;
+      background: var(--cyan);
+      color: #031014;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .enrollment-copy h2 {
+      margin-top: 26px;
+      font-size: clamp(48px, 5.6vw, 82px);
+      line-height: .89;
+      text-transform: uppercase;
+      letter-spacing: -.055em;
+    }
+
+    .enrollment-copy h2 span {
+      color: var(--cyan);
+    }
+
+    .enrollment-copy p {
+      margin-top: 25px;
+      color: #bcc6ca;
+      font-size: 18px;
+      line-height: 1.65;
+      max-width: 680px;
+    }
+
+    .price {
+      padding: 52px;
+      background: var(--cyan);
+      color: #031014;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .price small {
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .price strong {
+      display: block;
+      margin-top: 12px;
+      font-size: clamp(50px, 5vw, 74px);
+      letter-spacing: -.055em;
+      line-height: .88;
+    }
+
+    .price p {
+      margin-top: 20px;
+      line-height: 1.55;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+
+    .schedule {
+      padding: 26px;
+    }
+
+    .schedule + .schedule {
+      border-left: 1px solid rgba(255,255,255,.10);
+    }
+
+    .schedule small {
+      display: block;
+      color: #6d7e85;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 9px;
+      font-weight: 900;
+      margin-bottom: 7px;
+    }
+
+    .schedule strong {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .cta-row {
+      padding: 32px 52px 46px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .spots {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .spots strong {
+      color: var(--cyan);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 56px 20px;
+      text-align: center;
+      border-top: 1px solid #1f2b30;
+      background: #030607;
+    }
+
+    footer strong {
+      display: block;
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+
+    footer p {
+      margin-top: 10px;
+      color: #758187;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 820px) {
+      body {
+        padding-bottom: calc(88px + env(safe-area-inset-bottom));
+      }
+
+      section {
+        scroll-margin-top: 20px;
+      }
+
+      .container {
+        width: calc(100% - 38px);
+      }
+
+      .school-nav {
+        top: auto;
+        bottom: max(14px, env(safe-area-inset-bottom));
+        width: calc(100% - 38px);
+      }
+
+      .brand-link {
+        padding: 0 13px;
+        font-size: 9px;
+      }
+
+      .school-nav-links {
+        flex: 1;
+      }
+
+      .school-nav .nav-item:not(.primary) {
+        display: none;
+      }
+
+      .nav-item.primary {
+        flex: 1;
+        padding: 0 12px;
+      }
+
+      .school-hero {
+        min-height: 88vh;
+      }
+
+      .school-hero-image {
+        object-position: center center;
+      }
+
+      .school-hero::before {
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,.04) 0%, rgba(0,0,0,.10) 45%, rgba(0,0,0,.82) 78%, #050505 100%);
+      }
+
+      .hero-content {
+        padding: 150px 0 48px;
+      }
+
+      .hero-content .title {
+        font-size: 14.2vw;
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .proof-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .proof-item {
+        padding: 28px 7px;
+        text-align: center;
+      }
+
+      .proof-item strong {
+        font-size: clamp(36px, 11vw, 52px);
+      }
+
+      .proof-item span {
+        font-size: 8px;
+        letter-spacing: .05em;
+      }
+
+      .programs,
+      .workshop,
+      .stage,
+      .enrollment {
+        padding-top: 86px;
+        padding-bottom: 86px;
+      }
+
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .program-card {
+        min-height: 260px;
+      }
+
+      .workshop-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .skills {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 48px;
+      }
+
+      .skill {
+        min-height: 160px;
+        padding: 19px;
+      }
+
+      .stage-box {
+        padding: 42px 24px;
+      }
+
+      .stage-box .title {
+        font-size: 12.5vw;
+      }
+
+      .stage-copy {
+        font-size: 17px;
+      }
+
+      .stage-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .stage-card {
+        min-height: 260px;
+        padding: 28px 24px;
+      }
+
+      .enrollment-top {
+        grid-template-columns: 1fr;
+      }
+
+      .enrollment-copy,
+      .price {
+        padding: 34px 24px;
+      }
+
+      .enrollment-copy h2 {
+        font-size: 12.7vw;
+      }
+
+      .schedule-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .schedule {
+        border-top: 1px solid rgba(255,255,255,.10);
+      }
+
+      .schedule + .schedule {
+        border-left: 0;
+      }
+
+      .schedule:nth-child(even) {
+        border-left: 1px solid rgba(255,255,255,.10);
+      }
+
+      .cta-row {
+        padding: 28px 24px 32px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .spots {
+        text-align: center;
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule:nth-child(even) {
+        border-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="school-nav" aria-label="Navegación Escuela Clandestina">
+    <a class="brand-link" href="/">← LuisBoicot.com</a>
+
+    <div class="school-nav-links">
+      <a class="nav-item" href="#programas">Programas</a>
+      <a class="nav-item" href="#taller">Taller</a>
+      <a class="nav-item" href="#escenario">Escenario</a>
+      <a class="nav-item primary" href="#inscripciones">Inscríbete</a>
+    </div>
+  </nav>
+
+  <header class="school-hero">
+    <img
+      class="school-hero-image"
+      src="../assets/school.jpg"
+      alt="Alumnos graduados de Escuela Clandestina"
+    >
+
+    <div class="container hero-content">
+      <div class="eyebrow">Academia de formación artística</div>
+
+      <h1 class="title">
+        Aprende comedia.<br>
+        Haz comedia.<br>
+        <span>Súbete al escenario.</span>
+      </h1>
+
+      <p class="hero-copy">
+        Escuela Clandestina es un espacio de formación para personas
+        que quieren comenzar en la comedia, perfeccionar su técnica
+        y desarrollar una voz propia sobre el escenario.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button" href="#inscripciones">Ver inscripciones</a>
+        <a class="button secondary" href="#programas">Conocer programas</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="proof">
+    <div class="container proof-grid">
+
+      <div class="proof-item">
+        <strong>11</strong>
+        <span>Ediciones</span>
+      </div>
+
+      <div class="proof-item">
+        <strong>+60</strong>
+        <span>Egresados del Taller de Comedia</span>
+      </div>
+
+      <div class="proof-item">
+        <strong>3</strong>
+        <span>Programas de formación</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="programs" id="programas">
+    <div class="container">
+      <div class="eyebrow">Nuestros programas</div>
+
+      <h2 class="title">
+        Formación para<br>
+        hacer y vivir el arte.
+      </h2>
+
+      <p class="copy">
+        La academia combina formación técnica, trabajo escénico y desarrollo
+        artístico. Cada programa está enfocado en una etapa diferente del proceso.
+      </p>
+
+      <div class="program-grid">
+
+        <article class="program-card">
+          <div class="program-label">Programa principal</div>
+
+          <h3>
+            Taller de Comedia<br>
+            + Stand Up Comedy
+          </h3>
+
+          <p>
+            Formación integral para comenzar desde cero o perfeccionar técnica,
+            construir material propio y llevarlo hasta el escenario.
+          </p>
+
+          <div class="program-line"></div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-label">Especialización</div>
+
+          <h3>
+            Laboratorio<br>
+            de Remates
+          </h3>
+
+          <p>
+            Entrenamiento enfocado en fortalecer material, explorar posibilidades
+            y encontrar remates más efectivos.
+          </p>
+
+          <div class="program-line"></div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-label">Desarrollo artístico</div>
+
+          <h3>
+            Conoce tu valor<br>
+            como artista
+          </h3>
+
+          <p>
+            Un espacio para trabajar la valoración profesional del artista
+            y desarrollar herramientas para proyectar su trabajo con mayor claridad.
+          </p>
+
+          <div class="program-line"></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop" id="taller">
+    <div class="container">
+
+      <div class="eyebrow">Taller de Comedia + Stand Up Comedy</div>
+
+      <h2 class="title">
+        12 semanas para<br>
+        construir bases sólidas.
+      </h2>
+
+      <div class="workshop-grid">
+
+        <div class="workshop-copy">
+          <p>
+            El Taller de Comedia está diseñado tanto para personas sin experiencia
+            como para quienes ya hacen comedia y quieren perfeccionar su técnica.
+          </p>
+
+          <p>
+            El objetivo es comprender bien la estructura de la comedia,
+            aprender a crear de forma consciente y desarrollar material
+            que pueda sostenerse frente a público.
+          </p>
+
+          <p>
+            Las clases se realizan en un salón con formato de bar y escenario,
+            lo que permite trabajar de manera constante miedo escénico,
+            expresión corporal y puesta en escena durante todo el proceso.
+          </p>
+        </div>
+
+        <div class="details">
+
+          <div class="detail">
+            <small>Duración</small>
+            <strong>12 semanas · Una clase por semana</strong>
+          </div>
+
+          <div class="detail">
+            <small>Nivel</small>
+            <strong>Personas con y sin experiencia</strong>
+          </div>
+
+          <div class="detail">
+            <small>Modalidad</small>
+            <strong>Presencial · Trabajo constante sobre escenario</strong>
+          </div>
+
+          <div class="detail">
+            <small>Objetivo</small>
+            <strong>Avanzar desde las bases hasta desarrollar una rutina propia</strong>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="skills">
+
+        <article class="skill">
+          <strong>01</strong>
+          <h4>Comedia</h4>
+          <p>Estructura, premisas y construcción de ideas.</p>
+        </article>
+
+        <article class="skill">
+          <strong>02</strong>
+          <h4>Stand Up</h4>
+          <p>Desarrollo de material y construcción de rutina.</p>
+        </article>
+
+        <article class="skill">
+          <strong>03</strong>
+          <h4>Improvisación</h4>
+          <p>Escucha, reacción y espontaneidad.</p>
+        </article>
+
+        <article class="skill">
+          <strong>04</strong>
+          <h4>Oratoria</h4>
+          <p>Comunicación, intención y presencia.</p>
+        </article>
+
+        <article class="skill">
+          <strong>05</strong>
+          <h4>Escenario</h4>
+          <p>Miedo escénico, cuerpo y puesta en escena.</p>
+        </article>
+
+        <article class="skill">
+          <strong>06</strong>
+          <h4>Producción</h4>
+          <p>Herramientas para presentar el trabajo a un nivel profesional.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="escenario">
+    <div class="container">
+
+      <div class="stage-box">
+        <div class="eyebrow">La experiencia real</div>
+
+        <h2 class="title">
+          No terminas con una clase.<br>
+          <span>Terminas con un show.</span>
+        </h2>
+
+        <p class="stage-copy">
+          Cada edición del Taller de Comedia culmina con
+          <strong>La Graduación</strong>, donde cada alumno presenta
+          ante público en vivo la rutina desarrollada durante el proceso.
+          Y después de graduarse, el escenario sigue abierto.
+        </p>
+      </div>
+
+      <div class="stage-cards">
+
+        <article class="stage-card">
+          <small>Cada edición</small>
+          <h3>La Graduación</h3>
+          <p>
+            El cierre del Taller de Comedia y el momento de convertir
+            doce semanas de trabajo en una experiencia real frente a público.
+          </p>
+        </article>
+
+        <article class="stage-card">
+          <small>Todos los meses</small>
+          <h3>El Reencuentro</h3>
+          <p>
+            Un show mensual donde egresados de distintas ediciones
+            vuelven a encontrarse y presentar comedia en vivo.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="enrollment" id="inscripciones">
+    <div class="container">
+
+      <div class="enrollment-box">
+
+        <div class="enrollment-top">
+
+          <div class="enrollment-copy">
+            <div class="open-tag">Inscripciones abiertas</div>
+
+            <h2>
+              11.ª edición<br>
+              <span>Taller de Comedia</span>
+            </h2>
+
+            <p>
+              Comienza la semana del <strong>22 de septiembre de 2026</strong>.
+              Elige uno de los dos horarios disponibles y trabaja durante
+              doce semanas en un espacio preparado para entrenar comedia
+              y escenario.
+            </p>
+          </div>
+
+          <div class="price">
+            <small>Valor total</small>
+
+            <strong>$300.000</strong>
+
+            <p>
+              Reserva tu cupo con $50.000.
+              Los $250.000 restantes pueden pagarse durante las 12 semanas
+              de manera semanal, quincenal o mensual.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="schedule-grid">
+
+          <div class="schedule">
+            <small>Horario 1</small>
+            <strong>Martes<br>19:00 a 21:00</strong>
+          </div>
+
+          <div class="schedule">
+            <small>Horario 2</small>
+            <strong>Domingos<br>12:00 a 14:00</strong>
+          </div>
+
+          <div class="schedule">
+            <small>Ubicación</small>
+            <strong>Alameda 2145<br>Cerca de Metro Los Héroes</strong>
+          </div>
+
+          <div class="schedule">
+            <small>Espacio</small>
+            <strong>Salón con escenario<br>Estacionamiento disponible</strong>
+          </div>
+
+        </div>
+
+        <div class="cta-row">
+          <div class="spots">
+            Cupos limitados · <strong>quedan 3</strong>
+          </div>
+
+          <a
+            class="button"
+            href="https://www.instagram.com/escuelaclandestina/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultar por inscripción
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Escuela Clandestina</strong>
+    <p>Academia de formación artística · LuisBoicot.com</p>
+  </footer>
+
+</body>
+</html>
